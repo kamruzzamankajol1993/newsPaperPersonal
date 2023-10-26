@@ -1,0 +1,8 @@
+[11-Aug-2023 08:11:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/fjez8ddj0lu0/public_html/bangla.dailybanglatimes.com/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/fjez8ddj0lu0/public_html/bangla.dailybanglatimes.com/config/cache.php on line 18
+[13-Aug-2023 10:43:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/fjez8ddj0lu0/public_html/bangla.dailybanglatimes.com/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/fjez8ddj0lu0/public_html/bangla.dailybanglatimes.com/config/cache.php on line 18
