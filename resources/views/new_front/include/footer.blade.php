@@ -1,295 +1,265 @@
-<style>
-	.popup {
-    display: inline-block;
-}
-.popup .popuptext {
-    visibility: hidden;
-    width: 211px;
-    background-color: #f5f6f7;
-    color: #1d2129;
-    text-align: center;
-    border-radius: 6px;
-    padding: 20px;
-    position: relative;
-    top: -9px;
-    right: 473px;
-}
-.popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-</style>
+   <!-- Footer Top Section Start -->
+   <div class="footer-top-section section bg-dark">
+    <div class="container-fluid">
+        <div class="row">
 
-<footer id="footer" >
+            <!-- Footer Widget Start -->
+            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
 
-	<!-- Top Footer -->
-			<div id="top-footer" class="" style="background-color:#B3B6B7;">
-				<!-- CONTAINER -->
-				<div class="container">
-					<!-- ROW -->
-					<div class="row">
-						<!-- Column 1 -->
-						
-						<div class="col-sm-4 col-md-4" >
+                <!-- Title -->
+                <h4 class="widget-title">About Us</h4>
 
-					
-						
-								<div class="footer-widget1 social-widget text-center"  style="margin-top: 60px;" >
-		<ul id="llg">
-								 
-								    
-								      
+                <div class="content fix">
+                    <p>Lorem ipsum dolor sit amet, consectet adipiscing Se velit ex, dictum at nunc  placerat consequatS quam. ornaremi condiment PhasellusI  cursii placerat quam et, mattis nibh Suspendislacinias.</p>
 
-								
-                                 @foreach($ss_link_list as $all_ss_link_list)
-                               
-                               @if($all_ss_link_list->linkn == 'Facebook')
-                               
-                               
-                        <li><a href="{{$all_ss_link_list->name}}" class="facebook"><i
-                                        class="fa fa-facebook"></i></a></li>
-                                        
-                                        @elseif($all_ss_link_list->linkn == 'Twitter')
-                        <li><a href="{{$all_ss_link_list->name}}" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                          @elseif($all_ss_link_list->linkn == 'Instagram')
-                                   <li><a href="{{$all_ss_link_list->name}}" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                                    @elseif($all_ss_link_list->linkn == 'Linkedin')
-                                   <li><a href="{{$all_ss_link_list->name}}" class="facebook"><i class="fa fa-linkedin"></i></a></li>
-   @else
-                        <li><a href="{{$all_ss_link_list->name}}" class="youtube"><i class="fa fa-youtube"></i></a></li>
-                        
-                        @endif
-                        
-                          @endforeach
+                    <!-- Footer Contact -->
+                    <ol class="footer-contact">
+                        <li><i class="fa fa-home"></i>House No 08, Din Bari, Dhaka, Bangladesh</li>
+                        <li><i class="fa fa-envelope-open"></i>Username@gmail.com</li>
+                        <li><i class="fa fa-headphones"></i>(+660 256 24857) , (+660 256 24857)</li>
+                    </ol>
 
-								</ul>
-							
-								
-							</div>
-							<!-- /footer about -->
+                    <!-- Footer Social -->
+                    <div class="footer-social">
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a>
+                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                    </div>
 
+                </div>
 
+            </div><!-- Footer Widget End -->
 
-						</div>
-						<!-- /Column 1 -->
-					<div class="col-sm-4 col-md-4" >
+            <!-- Footer Widget Start -->
+            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
 
-						<div class="footer-widget about-widget text-center" id="mdis1">
-								<div class="footer-logo">
-<center>	<a href="#" class="logo"><img src="https://bangla.dailybanglatimes.com/{{ $bb_site_logo_footer }}" alt="" id="im1" style=""></a></center>
+                <!-- Title -->
+                <h4 class="widget-title">popular News</h4>
 
-								</div>
-							</div>
+                <!-- Footer Widget Post Start -->
+                <div class="footer-widget-post">
+                    <div class="post-wrap">
 
+                        <!-- Image -->
+                        <a href="post-details.html" class="image"><img src="img/post/post-33.jpg" alt="Post"></a>
 
+                        <!-- Content -->
+                        <div class="content">
 
-							<!-- footer about -->
-							<div class="footer-widget about-widget" id="mdis4">
-								<div class="footer-logo">
-<center>	<a href="#" class="logo"><img src="https://bangla.dailybanglatimes.com/{{ $bb_site_logo_footer }}" alt="" id="im1" style=""></a></center>
+                            <!-- Title -->
+                            <h5 class="title"><a href="post-details.html">Hynpodia helps male travelers find healths.</a></h5>
 
-								</div>
-								
-								
-							</div>
-						
-								<div class="footer-widget1 social-widget text-center"  style="margin-bottom: 12px;" >
-		<ul id="llg">
-								 
-								    
-								                     <li>
-                        <button class="btn btn-success btn-sm" target="_blank"  id="ggg"  onclick="window.location.href='https://bangla.dailybanglatimes.com'" >বাংলা</button>
-                 
-                    
-                               </li> 
-                <li>
-                        <button class="btn btn-success btn-sm" target="_blank"  id="ggg"  onclick="window.location.href='https://dailybanglatimes.com'" >English</button>
-                 
-                    
-                               </li> 
-								
-                               
+                            <!-- Meta -->
+                            <div class="meta fix">
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                            </div>
 
-								</ul>
-							
-								
-							</div>
-							<!-- /footer about -->
+                        </div>
 
+                    </div>
+                </div><!-- Footer Widget Post ENd -->
 
+                <!-- Footer Widget Post Start -->
+                <div class="footer-widget-post">
+                    <div class="post-wrap">
 
-						</div>
+                        <!-- Image -->
+                        <a href="post-details.html" class="image"><img src="img/post/post-34.jpg" alt="Post"></a>
 
-							<div class="col-sm-4 col-md-4">
-						    	<div class="footer-widget1 galery-widget text-center" id="mdis1" style="margin-bottom:20px">
+                        <!-- Content -->
+                        <div class="content">
 
-								<div class="widget-title">
-									<h5 style=""><u>Useful Links</u></h5>
-								</div>
-								<ul >
-						          <p> <a href="{{route('term_and_condition')}}" style="color:Black;">Terms And Condition</a></p>
-						          <p> <a href="{{route('privacy_policy')}}" style="color:Black;">Privacy Policy</a></p>
+                            <!-- Title -->
+                            <h5 class="title"><a href="post-details.html">How do you solve the IOS page problem.</a></h5>
 
-								</ul>
-							</div>
-							<!-- footer galery -->
-							<div class="footer-widget galery-widget" id="mdis4">
-								<div class="widget-title">
-									<h5 style=""><u>Useful Links</u></h5>
-								</div>
-								<ul >
-						       <p> <a href="{{route('term_and_condition')}}" style="color:Black;">Terms And Condition</a></p>
-						          <p> <a href="{{route('privacy_policy')}}" style="color:Black;">Privacy Policy</a></p>
+                            <!-- Meta -->
+                            <div class="meta fix">
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                            </div>
 
-								</ul>
-							</div>
-							<!-- /footer galery -->
+                        </div>
 
-				        </div>
+                    </div>
+                </div><!-- Footer Widget Post End -->
 
-					</div>
-					<!-- /ROW -->
-				</div>
-				<!-- /CONTAINER -->
-			</div>
-			<!-- /Top Footer -->
-			<!-- Top Footer -->
-			<div id="top-footer" class="" style="background-color:#242424;">
-				<!-- CONTAINER -->
-				<div class="container">
-					<!-- ROW -->
-					<div class="row">
-						<!-- Column 1 -->
-						<div class="col-sm-12 col-md-6">
-	<div class="footer-widget about-widget text-center" id="mdis1">
-							<a href="{{route('about')}}"><h3 style="color:white;">About</h3></a>
-							
-							<p style="font-weight: lighter;text-align: justify;">{{$system_all->about_us}}</p>
-							</div>
+                <!-- Footer Widget Post Start -->
+                <div class="footer-widget-post">
+                    <div class="post-wrap">
 
+                        <!-- Image -->
+                        <a href="post-details.html" class="image"><img src="img/post/post-35.jpg" alt="Post"></a>
 
+                        <!-- Content -->
+                        <div class="content">
 
-							<!-- footer about -->
-							<div class="footer-widget about-widget" id="mdis4">
-									<a href="{{route('about')}}"><h3 style="color:white;">About</h3></a>
-										
-									<p style="font-weight: lighter;text-align: justify;">{{$system_all->about_us}}</p>
-							</div>
-							
+                            <!-- Title -->
+                            <h5 class="title"><a href="post-details.html">Home is not a place . . . . . .  . it’s a feeling.</a></h5>
 
+                            <!-- Meta -->
+                            <div class="meta fix">
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                            </div>
 
+                        </div>
 
-						</div>
-						<div class="col-sm-12 col-md-2">
-						    </div>
-						<!-- /Column 1 -->
-						<!--<div class="col-md-2">-->
-						<!--	</div>-->
+                    </div>
+                </div><!-- Footer Widget Post End -->
 
-						<div class="col-sm-12 col-md-4">
-						    	<div class="footer-widget1 galery-widget text-center" id="mdis1">
-							<div class="widget-title">
-									<a href="{{route('publisher_and_editor_in_chief')}}">	<h3 style="font-weight:300;color:white;"><b>Publisher and Editor-in-Chief:</b></h3></a>
-				
-								</div>
-								<ul style="">
-									<p style="color:white;font-weight: 200;" data-toggle="modal" data-target="#exampleModal"><span><i class="fa fa-address-card-o"></i> {{$system_all->editor_name}}</span></p>
-										<p style="color:white;font-weight: 200;"><span><i class="fa fa-user"><a href="{{route('contributor')}}"><h3 style="color:white;">Contributer</h3></a></i></span></p>
-								<p style="color:white;font-weight: 200;"><span><i class="fa fa-phone"> {{$system_all->phone_one}}</i></span></p>
-									<p style="color:white;font-weight: 200;"><span><i class="fa fa-phone"> {{$system_all->Phone}}</i></span></p>
-									<p style="color:white;font-weight: 200;"><span><i class="fa fa-envelope"></i> {{$system_all->Email}}</span> <a href=""></a></p>
-										<p style="color:white;font-weight: 200;"><span><i class="fa fa-envelope"></i> {{$system_all->email_one}}</span> <a href=""></a></p>
-										<span style="color:white;">USA Office:</span>
-											<p style="color:white;font-weight: 200;"><span><i class="fa fa-map-marker"> {{$system_all->Address}}</i></span></p>
-						<p style="font-weight: 200;color:white;">
-										    <span><i class="fa fa-copyright" aria-hidden="true" style="color:black;"></i></span> 
-										    <span style="color:black;">
-Copyright &copy;2008-<script>document.write(new Date().getFullYear());</script>
-<b>Daily Bangla Times</b><span style="padding-left:5px;"><img src="https://bangla.dailybanglatimes.com/{{ $bb_site_logo_footer }}" alt="" id="im1" style="height:20px;width:20px;"></span>  
-</span>
-</p>
-								</ul>
-							</div>
-							
-							<!-- footer galery -->
-							<div class="footer-widget galery-widget" id="mdis4">
-								<div class="widget-title">
-									<a href="{{route('publisher_and_editor_in_chief')}}">	<h3 style="font-weight:300;color:white;"><b>Publisher and Editor-in-Chief:</b></h3></a>
-	
-								</div>
-								<ul style="">
-									<p style="color:white;font-weight: 200;" data-toggle="modal" data-target="#exampleModal"><span><img src="https://bangla.dailybanglatimes.com/public/bnn.jpg" height="17px;" width="17px;"/>  {{$system_all->editor_name}}</span></p>
-	<p style="color:white;font-weight: 200;"><span><i class="fa fa-user"><a href="{{route('contributor')}}">  Contributer</a></i></span></p>
-<p style="color:white;font-weight: 200;"><span><i class="fa fa-phone"> {{$system_all->phone_one}}</i></span></p>
-									<p style="color:white;font-weight: 200;"><span><i class="fa fa-phone"> {{$system_all->Phone}}</i></span></p>
-									<p style="color:white;font-weight: 200;"><span><i class="fa fa-envelope"></i> {{$system_all->Email}}</span> <a href=""></a></p>
-										<p style="color:white;font-weight: 200;"><span><i class="fa fa-envelope"></i> {{$system_all->email_one}}</span> <a href=""></a></p>
-										<span style="color:white;">USA Office:</span>
-											<p style="color:white;font-weight: 200;"><span><i class="fa fa-map-marker"> {{$system_all->Address}}</i></span></p>
-																		<p style="font-weight: 200;"><span><i class="fa fa-copyright" aria-hidden="true" style="color:white;"></i></span> <span style="color:white;"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;2008-<script>document.write(new Date().getFullYear());</script> <b>Daily Bangla Times</b><span style="padding-left:5px;"><img src="https://bangla.dailybanglatimes.com/{{ $bb_site_logo_footer }}" alt="" id="im1" style="height:20px;width:20px;"></span>  
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
-</p>
+            </div><!-- Footer Widget End -->
 
-								</ul>
-							</div>
-							<!-- /footer galery -->
+            <!-- Footer Widget Start -->
+            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
 
-				        </div>
+                <h4 class="widget-title">Twitter Feed</h4>
 
-					</div>
-					<!-- /ROW -->
-				</div>
+                <!-- Single Tweet Start -->
+                <div class="single-tweet">
 
-			</div>
+                    <!-- Image -->
+                    <a href="#" class="image"><img src="img/tweets/1.png" alt="Author Image"></a>
+                    <!-- Content -->
+                    <div class="content fix">
+                        <!-- Head -->
+                        <div class="head"><h5><a href="#">Hashtech</a></h5><span>5 Minute Ago</span></div>
+                        <!-- Tags -->
+                        <div class="tags">
+                            <a href="#">#UI</a>
+                            <a href="#">#UX</a>
+                            <a href="#">#Lorem</a>
+                        </div>
+                        <!-- Links -->
+                        <div class="links"><a href="#">@https://themeforest.net/item/moto-multipurpose-landing-page-template/20342375?s_rank=1</a></div>
+                        <!-- Meta -->
+                        <ul class="meta">
+                            <li><a href="#"><i class="fa fa-heart"></i> 865</a></li>
+                            <li><a href="#"><i class="fa fa-comments"></i> 653</a></li>
+                            <li><a href="#"><i class="fa fa-reply"></i></a></li>
+                        </ul>
+                    </div>
 
+                </div><!-- Single Tweet End -->
 
+                <!-- Single Tweet Start -->
+                <div class="single-tweet">
 
-			<div id="bottom-footer" class="section" style="background: ##000000;padding-top: 15px;
-    padding-bottom: 10px;">
+                    <!-- Image -->
+                    <a href="#" class="image"><img src="img/tweets/1.png" alt="Author Image"></a>
+                    <!-- Content -->
+                    <div class="content fix">
+                        <!-- Head -->
+                        <div class="head"><h5><a href="#">Hashtech</a></h5><span>5 Minute Ago</span></div>
+                        <!-- Tags -->
+                        <div class="tags">
+                            <a href="#">#UI</a>
+                            <a href="#">#UX</a>
+                            <a href="#">#Lorem</a>
+                        </div>
+                        <!-- Links -->
+                        <div class="links"><a href="#">@https://themeforest.net/item/moto-multipurpose-landing-page-template/20342375?s_rank=1</a></div>
+                        <!-- Meta -->
+                        <ul class="meta">
+                            <li><a href="#"><i class="fa fa-heart"></i> 865</a></li>
+                            <li><a href="#"><i class="fa fa-comments"></i> 653</a></li>
+                            <li><a href="#"><i class="fa fa-reply"></i></a></li>
+                        </ul>
+                    </div>
 
-				<div class="container-fluid">
+                </div><!-- Single Tweet End -->
 
-					<div class="row">
+            </div><!-- Footer Widget End -->
 
+            <!-- Footer Widget Start -->
+            <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
 
-						<div class="col-sm-9 col-md-9">
-							<ul class="footer-links">
+                <!-- Title -->
+                <h4 class="widget-title">Top News</h4>
 
-								<p style="font-size: 13px;
-    font-weight: 200;
-    padding-right: 8px;"> এই ওয়েবসাইটে প্রকাশিত সংবাদ, আলোকচিত্র ও ভিডিওচিত্র বিনা অনুমতিতে অন্য কোথাও প্রকাশ করা সম্পূর্ণ বেআইনি। সকল স্বত্ব dailybanglatimes.com কর্তৃক সংরক্ষিত</p>
+                <!-- Footer Widget Post Start -->
+                <div class="footer-widget-post">
+                    <div class="post-wrap">
 
-							</ul>
-						</div>
+                        <!-- Image -->
+                        <a href="post-details.html" class="image"><img src="img/post/post-14.jpg" alt="Post"></a>
 
-						<div class="col-sm-3 col-md-3 ">
+                        <!-- Content -->
+                        <div class="content">
 
-						</div>
+                            <!-- Title -->
+                            <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
 
-					</div>
+                            <!-- Meta -->
+                            <div class="meta fix">
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                            </div>
 
-				</div>
+                        </div>
 
-			</div>
+                    </div>
+                </div><!-- Footer Widget Post ENd -->
 
-		</footer>
+                <!-- Footer Widget Post Start -->
+                <div class="footer-widget-post">
+                    <div class="post-wrap">
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-      
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <img src="https://bangla.dailybanglatimes.com/public/bnn.jpg" class="img-thumbnail"/>
-      </div>
-      
+                        <!-- Image -->
+                        <a href="post-details.html" class="image"><img src="img/post/post-23.jpg" alt="Post"></a>
+
+                        <!-- Content -->
+                        <div class="content">
+
+                            <!-- Title -->
+                            <h5 class="title"><a href="post-details.html">Fish Fry With green vegetables.</a></h5>
+
+                            <!-- Meta -->
+                            <div class="meta fix">
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div><!-- Footer Widget Post End -->
+
+                <!-- Footer Widget Post Start -->
+                <div class="footer-widget-post">
+                    <div class="post-wrap">
+
+                        <!-- Image -->
+                        <a href="post-details.html" class="image"><img src="img/post/post-40.jpg" alt="Post"></a>
+
+                        <!-- Content -->
+                        <div class="content">
+
+                            <!-- Title -->
+                            <h5 class="title"><a href="post-details.html">Hynpodia helps male travelers find healths.</a></h5>
+
+                            <!-- Meta -->
+                            <div class="meta fix">
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div><!-- Footer Widget Post End -->
+
+            </div><!-- Footer Widget End -->
+
+        </div>
     </div>
-  </div>
-</div>
+</div><!-- Footer Top Section End -->
 
+<!-- Footer Bottom Section Start -->
+<div class="footer-bottom-section section bg-dark">
+    <div class="container">
+        <div class="row">
+
+            <!-- Copyright Start -->
+            <div class="copyright text-center col">
+                <p>© 2022 Khobor. Made with <i class="fa fa-heart heart-icon"></i> By <a target="_blank" href="https://hasthemes.com/">HasThemes</a></p>
+            </div><!-- Copyright End -->
+
+        </div>
+    </div>
+</div><!-- Footer Bottom Section End -->

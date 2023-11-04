@@ -66,25 +66,25 @@
                 </li>
                 @endif
 
-                <li class="menu-title" key="t-apps">Devision News</li>
+                {{-- <li class="menu-title" key="t-apps">Devision News</li> --}}
 
 
                 @if ($usr->can('division_cat_add') || $usr->can('division_cat_view') ||  $usr->can('division_cat_update') ||  $usr->can('division_cat_delete'))
 
-                <li class="{{ Route::is('admin.division_category') ? 'active' : '' }}">
+                {{-- <li class="{{ Route::is('admin.division_category') ? 'active' : '' }}">
                     <a href="{{ route('admin.division_category') }}" class="waves-effect">
                         <i class="bx bx-clipboard"></i>
                         <span key="t-dashboard">Category</span>
                     </a>
-                </li>
+                </li> --}}
                 @endif
                 @if ($usr->can('div_news_add') || $usr->can('div_news_view') ||  $usr->can('div_news_update') ||  $usr->can('div_news_delete'))
-                <li class="{{ Route::is('admin.division_news') ? 'active' : '' }}">
+                {{-- <li class="{{ Route::is('admin.division_news') ? 'active' : '' }}">
                     <a href="{{ route('admin.division_news') }}" class="waves-effect">
                         <i class="bx bx-news"></i>
                         <span key="t-dashboard">News</span>
                     </a>
-                </li>
+                </li> --}}
                 @endif
 
                 <li class="menu-title" key="t-apps">Video News</li>

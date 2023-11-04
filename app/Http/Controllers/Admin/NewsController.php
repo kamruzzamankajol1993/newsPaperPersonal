@@ -18,30 +18,30 @@ use DateTimezone;
 use Illuminate\Support\Facades\Auth;
 class NewsController extends Controller
 {
-    
+
     public function p_news($id){
-        
+
         Post::where('id', $id)
        ->update([
            'public_site' => 1
         ]);
-        
+
         return redirect()->back();
-        
+
     }
-    
+
      public function p_newse($id){
-        
+
         Post::where('id', $id)
        ->update([
            'public_site' => 0
         ]);
-        
+
         return redirect()->back();
-        
+
     }
-    
-    
+
+
     public function trust_news_list(){
         $cats=PostCategory::all();
         if(Auth::guard('admin')->user()->id == 1){
@@ -50,9 +50,9 @@ class NewsController extends Controller
             $allPost=Post::where('public_site',13)->where('user_id',Auth::guard('admin')->user()->id)->latest()->get();
         }
         return view('backend.news.trust',compact('cats','allPost'));
-        
+
     }
-    
+
     public function index(){
 
 
@@ -64,7 +64,7 @@ class NewsController extends Controller
         }
         return view('backend.news.index',compact('cats','allPost'));
     }
-    
+
     public function draft_bangla(){
           $cats=PostCategory::all();
         if(Auth::guard('admin')->user()->id == 1){
@@ -73,10 +73,10 @@ class NewsController extends Controller
             $allPost=Post::where('public_site',10)->where('user_id',Auth::guard('admin')->user()->id)->latest()->get();
         }
         return view('backend.news.draft',compact('cats','allPost'));
-        
+
     }
-    
-    
+
+
      public function draft_english(){
           $cats=PostCategory::all();
         if(Auth::guard('admin')->user()->id == 1){
@@ -85,9 +85,9 @@ class NewsController extends Controller
             $allPost=Post::where('public_site',11)->where('user_id',Auth::guard('admin')->user()->id)->latest()->get();
         }
         return view('backend.news.engdraft',compact('cats','allPost'));
-        
+
     }
-    
+
     public function indexe(){
 
 
@@ -110,7 +110,7 @@ class NewsController extends Controller
     $subcategories=Subcategory::all();
     return view('backend.news.create')->with(['cats'=>$cats,'categories'=>$categories,'subcategories'=>$subcategories]);
     }
-    
+
     public function createe()
     {
 
@@ -134,7 +134,7 @@ class NewsController extends Controller
         $allPost=Adver::where('name','Social Banner')->latest()->value('image');
 
         $rrt = url($allPost);
-        
+
          //dd($allPost);
 
         $watermark = Image::make($rrt);
@@ -158,7 +158,7 @@ class NewsController extends Controller
 
     }
     }
-    
+
      protected function imageUpload1($request){
 
         if($request->hasfile('cover_image')){
@@ -169,8 +169,8 @@ class NewsController extends Controller
 
  $bb_site_logo_water_mark = Unit::where('name','Watermark')->value('img');
         $allPost=Adver::where('name','Social Banner')->latest()->value('image');
-        
-       
+
+
 
         $rrt = url($allPost);
 
@@ -200,28 +200,28 @@ class NewsController extends Controller
      protected function saveProductInfo($request, $imageUrl, $imageUrl1){
  $dt = new DateTime();
   $dt->setTimezone(new DateTimezone('Asia/Dhaka'));
-  
-  
+
+
   //dd($request->content);
-  
-  
+
+
   $tt = $dt->format($request->created_at);
 
        // $number=count($request->category_id);
-        
+
         if($request->dvalue == 'draft'){
             $public_site = 10;
-            
+
         }elseif($request->dvalue == 'draft_english'){
             $public_site = 11;
-            
+
         }else{
-            
+
              $public_site = $request->public_site;
         }
-        
+
         //new code
-        
+
         $newNewsData = new Post();
         $newNewsData->category_id = $request->category_id;
         $newNewsData->title = $request->title;
@@ -236,23 +236,23 @@ class NewsController extends Controller
      $newNewsData->public_site = $public_site;
       $newNewsData->cover_image = $imageUrl1;
       $newNewsData->cover_image1 = $imageUrl;
-      
+
       $newNewsData->save();
-      
-      
+
+
       $newsId=$newNewsData->id;
       $baseUrl = 'https://www.facebook.com/sharer/sharer.php?u=';
-     
+
       if($public_site == 1){
-          
-           $dd = $baseUrl.'https://bangla.dailybanglatimes.com/single/post/'.$newsId;
+
+           $dd = $baseUrl.'https://tv19online.com/single/post/'.$newsId;
             //dd($dd);
           return redirect()->away($dd);
       }elseif($public_site == 0){
-          $dd = $baseUrl.'https://dailybanglatimes.com/single/post/'.$newsId;
+          $dd = $baseUrl.'https://tv19online.com/single/post/'.$newsId;
           return redirect()->away($dd);
       }
-        //end new code 
+        //end new code
 
         // if($number >0){
         //     for($i=0;$i<$number;$i++){
@@ -265,9 +265,9 @@ class NewsController extends Controller
         //             'paragraph'=>$request->content,
         //             'total_view'=>$request->total_view,
         //             'status'=>$request->status,
-                    
+
         //             'public_site'=>$public_site,
-                    
+
         //             'extra_publish_option'=>$request->extra_publish_option,
         //             'created_at'=>$request->created_at,
         //             'cover_image'=>$imageUrl1,
@@ -288,8 +288,8 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
-        
-        
+
+
         //dd(235);
 
 
@@ -302,32 +302,32 @@ class NewsController extends Controller
         $imageUrl = $this->imageUpload($request);
         $imageUrl1 = $this->imageUpload1($request);
         // $this->saveProductInfo($request, $imageUrl, $imageUrl1);
-        
-        
+
+
         $dt = new DateTime();
   $dt->setTimezone(new DateTimezone('Asia/Dhaka'));
-  
-  
+
+
   //dd($request->content);
-  
-  
+
+
   $tt = $dt->format($request->created_at);
 
        // $number=count($request->category_id);
-        
+
         if($request->dvalue == 'draft'){
             $public_site = 10;
-            
+
         }elseif($request->dvalue == 'draft_english'){
             $public_site = 11;
-            
+
         }else{
-            
+
              $public_site = $request->public_site;
         }
-        
+
         //new code
-        
+
         $newNewsData = new Post();
         $newNewsData->category_id = $request->category_id;
         $newNewsData->title = $request->title;
@@ -342,23 +342,23 @@ class NewsController extends Controller
      $newNewsData->public_site = $public_site;
       $newNewsData->cover_image = $imageUrl1;
       $newNewsData->cover_image1 = $imageUrl;
-      
+
       $newNewsData->save();
-      
-      
+
+
       $newsId=$newNewsData->id;
       $baseUrl = 'https://www.facebook.com/sharer/sharer.php?u=';
-     
+
       if($public_site == 1){
-          
-           $dd = $baseUrl.'https://bangla.dailybanglatimes.com/single/post/'.$newsId;
+
+           $dd = $baseUrl.'https://tv19online.com/single/post/'.$newsId;
             //dd($dd);
           return redirect()->away($dd);
       }elseif($public_site == 0){
-          $dd = $baseUrl.'https://dailybanglatimes.com/single/post/'.$newsId;
+          $dd = $baseUrl.'https://tv19online.com/single/post/'.$newsId;
           return redirect()->away($dd);
       }
-        //end new code 
+        //end new code
 
 
 
@@ -367,7 +367,7 @@ class NewsController extends Controller
 
 
     }
-    
+
     public function storee(Request $request)
     {
 
@@ -384,32 +384,32 @@ class NewsController extends Controller
         $imageUrl = $this->imageUpload($request);
         $imageUrl1 = $this->imageUpload1($request);
         // $this->saveProductInfo($request, $imageUrl, $imageUrl1);
-        
-        
+
+
         $dt = new DateTime();
   $dt->setTimezone(new DateTimezone('Asia/Dhaka'));
-  
-  
+
+
   //dd($request->content);
-  
-  
+
+
   $tt = $dt->format($request->created_at);
 
        // $number=count($request->category_id);
-        
+
         if($request->dvalue == 'draft'){
             $public_site = 10;
-            
+
         }elseif($request->dvalue == 'draft_english'){
             $public_site = 11;
-            
+
         }else{
-            
+
              $public_site = $request->public_site;
         }
-        
+
         //new code
-        
+
         $newNewsData = new Post();
         $newNewsData->category_id = $request->category_id;
         $newNewsData->title = $request->title;
@@ -424,23 +424,23 @@ class NewsController extends Controller
      $newNewsData->public_site = $public_site;
       $newNewsData->cover_image = $imageUrl1;
       $newNewsData->cover_image1 = $imageUrl;
-      
+
       $newNewsData->save();
-      
-      
+
+
       $newsId=$newNewsData->id;
       $baseUrl = 'https://www.facebook.com/sharer/sharer.php?u=';
-     
+
       if($public_site == 1){
-          
-           $dd = $baseUrl.'https://bangla.dailybanglatimes.com/single/post/'.$newsId;
+
+           $dd = $baseUrl.'https://tv19online.com/single/post/'.$newsId;
             //dd($dd);
           return redirect()->away($dd);
       }elseif($public_site == 0){
-          $dd = $baseUrl.'https://dailybanglatimes.com/single/post/'.$newsId;
+          $dd = $baseUrl.'https://tv19online.com/single/post/'.$newsId;
           return redirect()->away($dd);
       }
-        //end new code 
+        //end new code
 
 
 
@@ -456,13 +456,13 @@ class NewsController extends Controller
     	$post=Post::where('id',$id)->first();
     	return view('backend.news.detail')->with(['post'=>$post]);
     }
-    
-    
+
+
     public function deletep($id)
     {
         DB::table('posts')->where('id',$id)->delete();
-       
-       
+
+
     //   Post::where('id', $id)
     //   ->update([
     //       'public_site' => 13
@@ -474,8 +474,8 @@ class NewsController extends Controller
     public function delete($id)
     {
        // DB::table('posts')->where('id',$id)->delete();
-       
-       
+
+
        Post::where('id', $id)
        ->update([
            'public_site' => 13
@@ -490,7 +490,7 @@ class NewsController extends Controller
         return view('backend.news.edit')->with(['post'=>$post,'categories'=>$categories]);
 
     }
-    
+
      public function edite($id){
         $categories=PostCategory::all();
         $post=Post::find($id);

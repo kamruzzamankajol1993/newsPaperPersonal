@@ -36,7 +36,7 @@ Team information | {{ $ins_name }}
                                         <i class="far fa-calendar-plus  mr-2"></i> Add team Information
                                     </button>
 
-                                   
+
 @endif
                                 </div>
                             </div>
@@ -130,7 +130,7 @@ Team information | {{ $ins_name }}
 
 
                                 </td>
-                                
+
                                 <td>
 
 
@@ -139,11 +139,11 @@ Team information | {{ $ins_name }}
 
 
                                 </td>
-                                
+
                                 <td>
                                     {{ $user->p_status }}
-                                    
-                                    
+
+
                                 </td>
 
 
@@ -186,47 +186,47 @@ Team information | {{ $ins_name }}
 
 
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Image</label>
                                                             <input type="file" class="form-control form-control-sm"  name="image" placeholder="Enter Name">
 
 <img src="{{asset('/')}}{{$user->image}}"/ style="height:40px;">
                                                             </div>
-                                                            
-                                                            
+
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">About</label>
                                                             <textarea class="form-control form-control-sm" value=""  name="des" placeholder="Enter About">
-                                                                
+
                                                                 {{ $user->des }}
                                                                 </textarea>
 
 
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Facebook</label>
                                                             <input type="text" class="form-control form-control-sm" value="{{ $user->fblink }}"  name="fblink" placeholder="Enter Link">
 
 
                                                             </div>
-                                                            
+
                                                               <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Twitter</label>
                                                             <input type="text" class="form-control form-control-sm" value="{{ $user->twlink }}"  name="twlink" placeholder="Enter Link">
 
 
                                                             </div>
-                                                            
-                                                            
+
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Youtube</label>
                                                             <input type="text" class="form-control form-control-sm" value="{{ $user->yolink }}"  name="yolink" placeholder="Enter Link">
 
 
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Instagram</label>
                                                             <input type="text" class="form-control form-control-sm" value="{{ $user->inslink }}"  name="inslink" placeholder="Enter Link">
@@ -245,14 +245,20 @@ Team information | {{ $ins_name }}
 
 
                                                             </div>
-                                                            
+
                                                              <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Position Status</label>
                                                             <select class="form-control form-control-sm"  name="p_status" placeholder="Enter Name">
                                                                 <option value="12">--Please Select --</option>
-                                                                <option value="contributer" {{ $user->p_status == 'contributer' ? 'Selected':''}} >Contributer</option>
-                                                                <option value="other" {{ $user->p_status == 'other' ? 'Selected':''}} >Other</option>
-                                                                <option value="publisher_and_editor_in_chief" {{ $user->p_status == 'publisher_and_editor_in_chief' ? 'Selected':''}}>Publisher & Editor-in-chief</option>
+
+
+                                                                <option value="Chief Editor" {{ $user->p_status == 'Chief Editor' ? 'Selected':''}}>Chief Editor</option>
+                                                                <option value="Editorial Advisor" {{ $user->p_status == 'Editorial Advisor' ? 'Selected':''}}>Editorial Advisor</option>
+                                                                <option value="Editor" {{ $user->p_status == 'Editor' ? 'Selected':''}}>Editor</option>
+                                                                <option value="USA Bureau Chief" {{ $user->p_status == 'USA Bureau Chief' ? 'Selected':''}}>USA Bureau Chief</option>
+                                                                <option value="West Bengal Correspondent" {{ $user->p_status == 'West Bengal Correspondent' ? 'Selected':''}}>West Bengal Correspondent</option>
+                                                                <option value="Assistant News Editor" {{ $user->p_status == 'Assistant News Editor' ? 'Selected':''}}>Assistant News Editor</option>
+
                                                             </select>
 
 
@@ -348,7 +354,7 @@ Team information | {{ $ins_name }}
                                     <label for="password"> Name</label>
                         <input type="text" class="form-control form-control-sm"  name="name" placeholder="Enter Name">
 
-             
+
                                                             </div>
 
                                                             <div class="form-group col-md-12 col-sm-12">
@@ -357,47 +363,47 @@ Team information | {{ $ins_name }}
 
 
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Image</label>
                                                             <input type="file" class="form-control form-control-sm"  name="image" placeholder="Enter Name">
 
 
                                                             </div>
-                                                            
-                                                            
+
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">About</label>
                                                             <textarea class="form-control form-control-sm" value=""  name="des" placeholder="Enter About">
-                                                                
-                                                            
+
+
                                                                 </textarea>
 
 
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Facebook</label>
                                                             <input type="text" class="form-control form-control-sm"   name="fblink" placeholder="Enter Link">
 
 
                                                             </div>
-                                                            
+
                                                               <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Twitter</label>
                                                             <input type="text" class="form-control form-control-sm"   name="twlink" placeholder="Enter Link">
 
 
                                                             </div>
-                                                            
-                                                            
+
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Youtube</label>
                                                             <input type="text" class="form-control form-control-sm"   name="yolink" placeholder="Enter Link">
 
 
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Instagram</label>
                                                             <input type="text" class="form-control form-control-sm"   name="inslink" placeholder="Enter Link">
@@ -416,14 +422,18 @@ Team information | {{ $ins_name }}
 
 
                                                             </div>
-                                                            
+
                                                              <div class="form-group col-md-12 col-sm-12">
                                                                 <label for="password">Position Status</label>
                                                             <select class="form-control form-control-sm"  name="p_status" placeholder="Enter Name">
                                                                 <option value="12">--Please Select --</option>
-                                                                 <option value="contributer">Contributer</option>
-                                                                <option value="other" >Other</option>
-                                                                <option value="publisher_and_editor_in_chief" >Publisher & Editor-in-chief</option>
+                                                                <option value="Chief Editor">Chief Editor</option>
+                                                                <option value="Editorial Advisor" >Editorial Advisor</option>
+                                                                <option value="Editor" >Editor</option>
+                                                                <option value="USA Bureau Chief" >USA Bureau Chief</option>
+                                                                <option value="West Bengal Correspondent" >West Bengal Correspondent</option>
+                                                                <option value="Assistant News Editor" >Assistant News Editor</option>
+
                                                             </select>
 
 

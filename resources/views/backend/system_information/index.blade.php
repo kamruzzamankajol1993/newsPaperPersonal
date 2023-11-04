@@ -61,9 +61,9 @@ System information | {{ $ins_name }}
                                      <th>Phone Two</th>
                                     <th>Email One</th>
                                     <th>Email Two</th>
-                                     <th>Address</th>
+                                     <th>BD Office</th>
  <th>Editor Name</th>
-  <th>About Us</th>
+  <th>UK Office</th>
 
                                     <th>Action</th>
                                             </tr>
@@ -164,15 +164,19 @@ System information | {{ $ins_name }}
 
                         <input type="hidden" class="form-control form-control-sm" value="{{ $user->id }}" name="id" placeholder="Enter Name">
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-6 col-sm-12">
                                                                 <label for="name">Editor Name</label>
                                                                 <input type="text" class="form-control form-control-sm" value="{{ $user->editor_name }}" name="editor_name" placeholder="Enter Phone">
                                                             </div>
-                                                            
+
                                                              <div class="form-group col-md-6 col-sm-12">
-                                                                <label for="name">About Us</label>
-                                                                <textarea class="form-control form-control-sm" value="{{ $user->about_us }}" name="about_us" placeholder="Enter Phone">
+                                                                <label for="name">UK Office:</label>
+                                                                <textarea class="form-control form-control-sm" value="" name="about_us" placeholder="Enter Phone">
+
+                                                                    {{ $user->about_us }}
+
+
                                                                     </textarea>
                                                             </div>
 
@@ -181,7 +185,7 @@ System information | {{ $ins_name }}
                                                                 <label for="name">Phone One</label>
                                                                 <input type="text" class="form-control form-control-sm" value="{{ $user->Phone }}" name="Phone" placeholder="Enter Phone">
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-6 col-sm-12">
                                                                 <label for="name">Phone Two</label>
                                                                 <input type="text" class="form-control form-control-sm" value="{{ $user->phone_one }}" name="phone_one" placeholder="Enter Phone">
@@ -191,14 +195,14 @@ System information | {{ $ins_name }}
                                                                 <label for="name">Email One</label>
                                                                 <input type="email" class="form-control form-control-sm" value="{{ $user->Email }}" name="Email" placeholder="Enter Email">
                                                             </div>
-                                                            
+
                                                             <div class="form-group col-md-6 col-sm-12">
                                                                 <label for="name">Email Two</label>
                                                                 <input type="email" class="form-control form-control-sm" value="{{ $user->email_one }}" name="email_one" placeholder="Enter Email">
                                                             </div>
 
                                                             <div class="form-group col-md-6 col-sm-12">
-                                                    <label for="password"> Address</label>
+                                                    <label for="password"> Bangladesh Address</label>
                      <input type="text" class="form-control form-control-sm" value="{{ $user->Address }}" name="Address" placeholder="Enter Address">
                                                             </div>
                                                         </div>

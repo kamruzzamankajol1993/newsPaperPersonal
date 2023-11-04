@@ -161,7 +161,7 @@ $usr = Auth::guard('admin')->user();
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         @if(Auth::guard('admin')->user()->image == NUll)
-                    <img class="rounded-circle header-profile-user" src="{{ asset('/') }}public/admin/assets/images/users/avatar-2.jpg"
+                    <img class="rounded-circle header-profile-user" src="{{ asset('/') }}{{ $icon }}"
                          alt="Header Avatar">
                          @else
                          <img class="rounded-circle header-profile-user" src="{{asset('/')}}{{ Auth::guard('admin')->user()->image }}"
