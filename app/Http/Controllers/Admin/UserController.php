@@ -42,8 +42,14 @@ class UserController extends Controller
 
 
 
-         $homead=Adver::where('name','Home_Section')->orderBy('id','desc')->limit(1)->get();
-         $homead1=Adver::where('name','Home_Section')->orderBy('id','desc')->skip(1)->take(1)->get();
+         $homead=Adver::where('id',16)->value('image');
+         $homead1=Adver::where('id',17)->value('image');
+         $homead2=Adver::where('id',18)->value('image');
+
+         $homead3=Adver::where('id',19)->value('image');
+         $homead4=Adver::where('id',20)->value('image');
+
+         ;
     	$categories=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->limit(9)->get();
 
         $extraCatName = DB::table('post_categories')->where('id',16)->value('name');
@@ -69,8 +75,61 @@ class UserController extends Controller
 
 
 
+       $comPartOne =Post::where('category_id',68)->limit(1)->latest()->get();
+
+       $comPartTwo =Post::where('category_id',68)->latest()->skip(1)->take(4)->get();
+
+
+       $enPartOne =Post::where('category_id',7)->limit(1)->latest()->get();
+
+       $enPartTwo =Post::where('category_id',7)->latest()->skip(1)->take(4)->get();
+
+
+
+
+       $relPartOne =Post::where('category_id',50)->limit(1)->latest()->get();
+
+       $relPartTwo =Post::where('category_id',50)->latest()->skip(1)->take(4)->get();
+
+
+       $intPartOne =Post::where('category_id',4)->limit(1)->latest()->get();
+
+       $intPartTwo =Post::where('category_id',4)->latest()->skip(1)->take(4)->get();
+
+
+       $sportsPartOne =Post::where('category_id',6)->limit(1)->latest()->get();
+
+       $sportsPartTwo =Post::where('category_id',6)->latest()->skip(1)->take(2)->get();
+
+
+       $sportsPartThree=Post::where('category_id',6)->latest()->skip(3)->take(2)->get();
+
+
+       $sportsPartFour=Post::where('category_id',6)->latest()->skip(5)->take(1)->get();
+
+
+       $videoPartOne =Post::where('category_id',52)->latest()->get();
 
        $commentPartOne =Post::where('category_id',75)->limit(4)->latest()->get();
+
+       $juktoPartOne =Post::where('category_id',70)->limit(10)->latest()->get();
+       $curopPartOne =Post::where('category_id',71)->limit(5)->latest()->get();
+
+       $motaPartOne =Post::where('category_id',76)->limit(5)->latest()->get();
+       $proPartOne =Post::where('category_id',11)->limit(5)->latest()->get();
+
+       $vorPartOne =Post::where('category_id',18)->limit(5)->latest()->get();
+       $exPartOne =Post::where('category_id',73)->limit(5)->latest()->get();
+       $syPartOne =Post::where('category_id',60)->limit(5)->latest()->get();
+
+
+       $agriPartOne =Post::where('category_id',41)->limit(5)->latest()->get();
+       $hePartOne =Post::where('category_id',8)->limit(5)->latest()->get();
+       $othPartOne =Post::where('category_id',16)->limit(5)->latest()->get();
+
+
+       $phPartOne =Post::where('category_id',51)->limit(10)->latest()->get();
+
 
 
        $leftNew =Post::where('extra_publish_option',1)->inRandomOrder()->limit(2)->get();
@@ -81,6 +140,51 @@ class UserController extends Controller
 
        //dd( $topNews);
     return view('new_front.index1')->with([
+
+        'homead'=>$homead,
+        'homead1'=>$homead1,
+        'homead2'=>$homead2,
+        'homead3'=>$homead3,
+        'homead4'=>$homead4,
+
+        'phPartOne'=>$phPartOne,
+
+        'agriPartOne'=>$agriPartOne,
+        'hePartOne'=>$hePartOne,
+        'othPartOne'=>$othPartOne,
+
+
+        'syPartOne'=>$syPartOne,
+        'vorPartOne'=>$vorPartOne,
+        'exPartOne'=>$exPartOne,
+
+        'motaPartOne'=>$motaPartOne,
+        'proPartOne'=>$proPartOne,
+
+
+
+        'juktoPartOne'=>$juktoPartOne,
+        'curopPartOne'=>$curopPartOne,
+
+        'enPartOne'=>$enPartOne,
+        'enPartTwo'=>$enPartTwo,
+
+        'sportsPartOne'=>$sportsPartOne,
+        'sportsPartTwo'=>$sportsPartTwo,
+        'sportsPartThree'=>$sportsPartThree,
+        'sportsPartFour'=>$sportsPartFour,
+
+'videoPartOne'=>$videoPartOne,
+
+
+        'comPartOne'=>$comPartOne,
+        'comPartTwo'=>$comPartTwo,
+        'relPartOne'=>$relPartOne,
+        'relPartTwo'=>$relPartTwo,
+        'intPartOne'=>$intPartOne,
+        'intPartTwo'=>$intPartTwo,
+
+
         'bangladeshPartOne'=>$bangladeshPartOne,
         'bangladeshPartTwo'=>$bangladeshPartTwo,
 
@@ -117,38 +221,11 @@ class UserController extends Controller
 
     public function search(Request $request)
     {
-        if(session()->get('locale') == 'sp'){
+        $extraCatName = DB::table('post_categories')->where('id',16)->value('name');
 
-            $postCatname=PostCategory::all();
-            $categories=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->limit(12)->get();
-            $latestPosts=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->skip(12)->take(8)->get();
-            $latestPosts1=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->skip(11)->take(1)->get();
-           $subcats=Subcategory::where('cat_name',21)->get();
-            $latestheadline9s = Post::where('public_site',0)->latest()->skip(3)->take(6)->get();
-            $latestheadline2s = Post::where('public_site',0)->latest()->skip(3)->take(4)->get();
-            $footers = Post::where('public_site',0)->latest()->limit(5)->get();
-           $latestheadlines = Post::where('public_site',0)->latest()->take(3)->get();
-            $search_txt = $request->input('subcategory_id');
-            $newses = Post::where('public_site',0)->where('status',1)
-            ->Where('subcategory_id', 'like', '%'.$search_txt.'%')
-                               ->orwhere('title', 'like', '%'.$search_txt.'%')
-                    ->orWhere('paragraph', 'like', '%'.$search_txt.'%')
-                    ->orWhere('category_id', 'like', '%'.$search_txt.'%')
-                    ->get();
-    $f1= PostCategory::where('status',1)->limit(4)->get();
-    $f2= PostCategory::where('status',1)->skip(4)->limit(4)->get();
-    $f3= PostCategory::where('status',1)->skip(8)->limit(4)->get();
+        $latestPosts=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->skip(9)->take(18)->get();
+        $categories=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->limit(9)->get();
 
-        }else{
-        $postCatname=PostCategory::all();
-        $categories=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->limit(12)->get();
-        $latestPosts=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->skip(12)->take(8)->get();
-        $latestPosts1=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->skip(11)->take(1)->get();
-       $subcats=Subcategory::where('cat_name',21)->get();
-        $latestheadline9s = Post::where('public_site',1)->latest()->skip(3)->take(6)->get();
-        $latestheadline2s = Post::where('public_site',1)->latest()->skip(3)->take(4)->get();
-        $footers = Post::where('public_site',1)->latest()->limit(5)->get();
-       $latestheadlines = Post::where('public_site',1)->latest()->take(3)->get();
         $search_txt = $request->input('subcategory_id');
         $newses = Post::where('public_site',1)->where('status',1)
         ->Where('subcategory_id', 'like', '%'.$search_txt.'%')
@@ -156,27 +233,16 @@ class UserController extends Controller
                 ->orWhere('paragraph', 'like', '%'.$search_txt.'%')
                 ->orWhere('category_id', 'like', '%'.$search_txt.'%')
                 ->get();
-$f1= PostCategory::where('status',1)->limit(4)->get();
-$f2= PostCategory::where('status',1)->skip(4)->limit(4)->get();
-$f3= PostCategory::where('status',1)->skip(8)->limit(4)->get();
-        }
-    return view('front.search.search1')->with([
-        'f1'=>$f1,
-        'f2'=>$f2,
-        'f3'=>$f3,
-        'latestPosts1'=>$latestPosts1,
-        'latestheadline9s'=>$latestheadline9s,
-     'latestPosts'=>$latestPosts,
 
-     'categories'=>$categories,
-     'subcats'=>$subcats,
-     'postCatname'=>$postCatname,
-     'newses'=>$newses,
-     'latestheadlines'=>$latestheadlines,
-     'search_txt'=>$search_txt,
-     'latestheadline2s'=>$latestheadline2s,
-      'footers'=>$footers,
-    ]);
+                return view('new_front.category')->with([
+                    'newsesOne'=>$newsesOne,
+                  'latestPosts'=>$latestPosts,
+                  'extraCatName'=>$extraCatName,
+                  'postCatname'=>$postCatname,
+                  'categories'=>$categories,
+                  'newses'=>$newses,
+
+                 ]);
     }
     //
     public function about(){
@@ -216,18 +282,17 @@ $f3= PostCategory::where('status',1)->skip(8)->limit(4)->get();
     }
 
       public function contributor(){
+        $extraCatName = DB::table('post_categories')->where('id',16)->value('name');
 
-         $footers = Post::where('public_site',0)->latest()->limit(5)->get();
-         $categories=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->limit(12)->get();
-        $latestPosts=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->skip(12)->take(8)->get();
-        $latestPosts1=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->skip(11)->take(1)->get();
-        $team_list_all = Team::where('p_status','contributer')->get();
+        $latestPosts=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->skip(9)->take(18)->get();
+        $categories=DB::table('post_categories')->where('status',1)->orderBy('image','asc')->limit(9)->get();
+        $team_list_all = Team::get();
          return view('new_front.contributor')->with([
         'team_list_all'=>$team_list_all,
-        'footers'=>$footers,
-        'categories'=>$categories,
+
         'latestPosts'=>$latestPosts,
-        'latestPosts1'=>$latestPosts1
+'categories'=>$categories,
+        'extraCatName'=>$extraCatName,
 
     ]);
 

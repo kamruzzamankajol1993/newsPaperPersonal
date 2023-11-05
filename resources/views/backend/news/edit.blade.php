@@ -110,12 +110,17 @@ Edit News  |{{ $ins_name }}
 <div class="form-group col-md-12 mt-2">
         <label for="inputState">Extra Publish Option</label>
         <select id="inputState" class="form-control" name="extra_publish_option">
-          <option  value="1" {{ $post->extra_publish_option == 1 ? 'selected':'' }}>>Inside Slider</option>
-          <option value="0" {{ $post->extra_publish_option == 0 ? 'selected':'' }}>>Under Madam Image</option>
+          <option  value="1" {{ $post->extra_publish_option == 1 ? 'selected':'' }}>Left Side</option>
+          <option value="0" {{ $post->extra_publish_option == 0 ? 'selected':'' }}>Right Side</option>
+
+
+        
+
+
         </select>
       </div>
-      
-      
+
+
 <div class="form-group col-md-12 mt-3">
 
   <input type="submit" class="btn btn-primary col-12" value="Update">

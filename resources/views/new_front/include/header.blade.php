@@ -101,12 +101,12 @@ $convertedDATE = str_replace($engDATE, $bangDATE, $currentDate);
 
             <!-- Header Logo -->
             <div class="header-logo col-md-4 d-none d-md-block">
-                <a href="index.html" class="logo"><img src="{{asset('/')}}{{ $logo }}" alt="Logo"></a>
+                <a href="{{ route('home1') }}" class="logo"><img src="{{asset('/')}}{{ $logo }}" alt="Logo"></a>
             </div>
 
             <!-- Header Banner -->
             <div class="header-banner col-md-8 col-12">
-                <div class="banner"><a href="#"><img src="{{ asset('/') }}public/newfront/img/banner/header-banner-1.png" alt="Header Banner"></a></div>
+                <div class="banner"><a href="#"><img src="{{ asset('/') }}{{ $homead }}" alt="Header Banner"></a></div>
             </div>
 
         </div>
@@ -154,8 +154,8 @@ $convertedDATE = str_replace($engDATE, $bangDATE, $currentDate);
 
                         <!-- Header Search Form -->
                         <div class="header-search-form">
-                            <form action="#">
-                                <input type="text" placeholder="Search Here">
+                            <form action="{{ route('search') }}" method="get">
+                                <input type="text" name="search" placeholder="Search Here">
                             </form>
                         </div>
 

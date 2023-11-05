@@ -4058,6 +4058,10 @@ blockquote.blockquote.blockquote-bg p {
 .single-blog .blog-wrap .tags-social .blog-social a.twitter {
   background-color: #40bff5;
 }
+
+.single-blog .blog-wrap .tags-social .blog-social a.what {
+    background-color:#25d366;
+  }
 .single-blog .blog-wrap .tags-social .blog-social a.dribbble {
   background-color: #f7659c;
 }
@@ -4925,9 +4929,22 @@ blockquote.blockquote.blockquote-bg p {
 .footer-widget .content .footer-social a.facebook {
   background-color: #516eab;
 }
+.footer-widget .content .footer-social a.link {
+    background-color: #0A66C2;
+  }
+  .footer-widget .content .footer-social a.you {
+    background-color: #FF0000;
+  }
+  .footer-widget .content .footer-social a.pin {
+    background-color: #A80FFB;
+  }
 .footer-widget .content .footer-social a.twitter {
   background-color: #40bff5;
 }
+
+.footer-widget .content .footer-social a.what {
+    background-color: #25d366;
+  }
 .footer-widget .content .footer-social a.dribbble {
   background-color: #f7659c;
 }

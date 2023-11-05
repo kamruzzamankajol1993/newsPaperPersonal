@@ -1,7 +1,7 @@
 @extends('new_front.master.master')
 
 @section('title')
-TV19 Online
+{{ $ins_name }}
 @endsection
 
 @section('body')
@@ -233,7 +233,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                      <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
                         <!-- Sidebar Banner -->
-                        <a href="#" class="sidebar-banner"><img src="{{ asset('/') }}public/newfront/img/banner/sidebar-banner-2.jpg" alt="Sidebar Banner"></a>
+                        <a href="#" class="sidebar-banner"><img src="{{ asset('/') }}{{ $homead1 }}" alt="Sidebar Banner"></a>
 
                     </div>
 
@@ -364,8 +364,23 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <!-- Single Sidebar -->
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
+
+                             <!-- Sidebar Block Wrapper -->
+                             <div class="sidebar-block-wrapper">
+
+                                <!-- Sidebar Block Head Start -->
+                                <div class="head life-style-head" style="background:#EE0000;">
+
+                                    <!-- Title -->
+                                    <center>   <a href="{{ route('contributor') }}" target="_blank"><h4 class="title" style="color:white;">টিভি ১৯ পরিবার</h4>
+                                   </a></center>
+
+                                </div><!-- Sidebar Block Head End -->
+
+                             </div>
+
                             <!-- Sidebar Block Wrapper -->
-                            <div class="sidebar-block-wrapper">
+                            <div class="sidebar-block-wrapper mt-5">
 
                                 <!-- Sidebar Block Head Start -->
                                 <div class="head life-style-head">
@@ -420,7 +435,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
                             <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{ asset('/') }}public/newfront/img/banner/sidebar-banner-2.jpg" alt="Sidebar Banner"></a>
+                            <a href="#" class="sidebar-banner"><img src="{{ asset('/') }}{{ $homead2 }}" alt="Sidebar Banner"></a>
 
                         </div>
 
@@ -566,7 +581,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
                                 <!-- Sidebar Block Body Start -->
                                 <div class="body">
-
+                                    <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100063464174913" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/profile.php?id=100063464174913" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/profile.php?id=100063464174913">Tv19online</a></blockquote></div>
 
 
                                 </div><!-- Sidebar Block Body End -->
@@ -579,7 +594,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
                             <!-- Sidebar Banner -->
-                            <a href="#" class="sidebar-banner"><img src="{{ asset('/') }}public/newfront/img/banner/sidebar-banner-2.jpg" alt="Sidebar Banner"></a>
+                            <a href="#" class="sidebar-banner"><img src="{{ asset('/') }}{{ $homead3 }}" alt="Sidebar Banner"></a>
 
                         </div>
 
@@ -602,87 +617,67 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <div class="head sports-head">
 
                             <!-- Title -->
-                            <h4 class="title">sports</h4>
+                            <h4 class="title">আন্তর্জাতিক</h4>
 
                         </div><!-- Post Block Head End -->
 
                         <!-- Post Block Body Start -->
                         <div class="body">
-
+                            @foreach($intPartOne as $bangladeshPartOnes)
                             <!-- Small Post Start -->
                             <div class="post sports-post post-separator-border">
                                 <div class="post-wrap">
 
                                     <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-69.jpg" alt="post"></a>
+                                    <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                     <!-- Content -->
                                     <div class="content">
 
                                         <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Winning T20 Farewell To Safari.</a></h5>
+                                        <h4 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h4>
 
                                         <!-- Meta -->
                                         <div class="meta fix">
-                                            <a class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+
+                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+
                                         </div>
 
-                                        <p>Lorem ipsum dolor sit amet, consectet adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. </p>
-
-                                        <!-- Read More -->
-                                        <a href="post-details.html" class="read-more">read-more</a>
+                                        <!-- Description -->
+                                        <p>{!!  substr(strip_tags($bangladeshPartOnes->paragraph), 0, 150) !!}.</p>
 
                                     </div>
 
                                 </div>
                             </div><!-- Small Post End -->
-
+                            @endforeach
+                            @foreach($intPartTwo as $bangladeshPartOnes)
                             <!-- Small Post Start -->
                             <div class="post post-small post-list sports-post post-separator-border">
                                 <div class="post-wrap">
 
-                                    <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-40.jpg" alt="post"></a>
+                                     <!-- Image -->
+                                     <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
-                                    <!-- Content -->
-                                    <div class="content">
+                                     <!-- Content -->
+                                     <div class="content">
 
-                                        <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health..</a></h5>
+                                         <!-- Title -->
+                                         <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
-                                        <!-- Meta -->
-                                        <div class="meta fix">
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                        </div>
+                                         <!-- Meta -->
+                                         <div class="meta fix">
+                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+                                         </div>
 
-                                    </div>
-
-                                </div>
-                            </div><!-- Small Post End -->
-
-                            <!-- Small Post Start -->
-                            <div class="post post-small post-list sports-post post-separator-border">
-                                <div class="post-wrap">
-
-                                    <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-41.jpg" alt="post"></a>
-
-                                    <!-- Content -->
-                                    <div class="content">
-
-                                        <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                        <!-- Meta -->
-                                        <div class="meta fix">
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                        </div>
-
-                                    </div>
+                                     </div>
 
                                 </div>
                             </div><!-- Small Post End -->
+                            @endforeach
+
+
 
                         </div><!-- Post Block Body End -->
 
@@ -699,87 +694,68 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <div class="head sports-head">
 
                             <!-- Title -->
-                            <h4 class="title">sports</h4>
+                            <h4 class="title">ধর্ম/আইন-আদালত</h4>
 
                         </div><!-- Post Block Head End -->
 
                         <!-- Post Block Body Start -->
                         <div class="body">
 
+                            @foreach($relPartOne as $bangladeshPartOnes)
+
                             <!-- Small Post Start -->
                             <div class="post sports-post post-separator-border">
                                 <div class="post-wrap">
 
                                     <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-69.jpg" alt="post"></a>
+                                    <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                     <!-- Content -->
                                     <div class="content">
 
                                         <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Winning T20 Farewell To Safari.</a></h5>
+                                        <h4 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h4>
 
                                         <!-- Meta -->
                                         <div class="meta fix">
-                                            <a class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+
+                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+
                                         </div>
 
-                                        <p>Lorem ipsum dolor sit amet, consectet adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. </p>
-
-                                        <!-- Read More -->
-                                        <a href="post-details.html" class="read-more">read-more</a>
+                                        <!-- Description -->
+                                        <p>{!!  substr(strip_tags($bangladeshPartOnes->paragraph), 0, 150) !!}.</p>
 
                                     </div>
 
                                 </div>
                             </div><!-- Small Post End -->
-
+                            @endforeach
+                            @foreach($relPartTwo as $bangladeshPartOnes)
                             <!-- Small Post Start -->
                             <div class="post post-small post-list sports-post post-separator-border">
                                 <div class="post-wrap">
 
                                     <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-40.jpg" alt="post"></a>
+                                    <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                     <!-- Content -->
                                     <div class="content">
 
                                         <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health..</a></h5>
+                                        <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
                                         <!-- Meta -->
                                         <div class="meta fix">
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                         </div>
 
                                     </div>
 
                                 </div>
                             </div><!-- Small Post End -->
+@endforeach
 
-                            <!-- Small Post Start -->
-                            <div class="post post-small post-list sports-post post-separator-border">
-                                <div class="post-wrap">
-
-                                    <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-41.jpg" alt="post"></a>
-
-                                    <!-- Content -->
-                                    <div class="content">
-
-                                        <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                        <!-- Meta -->
-                                        <div class="meta fix">
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div><!-- Small Post End -->
 
                         </div><!-- Post Block Body End -->
 
@@ -796,87 +772,67 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <div class="head sports-head">
 
                             <!-- Title -->
-                            <h4 class="title">sports</h4>
+                            <h4 class="title">কমিউনিটি</h4>
 
                         </div><!-- Post Block Head End -->
 
                         <!-- Post Block Body Start -->
                         <div class="body">
 
+                            @foreach($comPartOne as $bangladeshPartOnes)
                             <!-- Small Post Start -->
                             <div class="post sports-post post-separator-border">
                                 <div class="post-wrap">
 
-                                    <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-69.jpg" alt="post"></a>
+                                  <!-- Image -->
+                                  <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
-                                    <!-- Content -->
-                                    <div class="content">
+                                  <!-- Content -->
+                                  <div class="content">
 
-                                        <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Winning T20 Farewell To Safari.</a></h5>
+                                      <!-- Title -->
+                                      <h4 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h4>
 
-                                        <!-- Meta -->
-                                        <div class="meta fix">
-                                            <a class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                        </div>
+                                      <!-- Meta -->
+                                      <div class="meta fix">
 
-                                        <p>Lorem ipsum dolor sit amet, consectet adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. </p>
+                                          <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
 
-                                        <!-- Read More -->
-                                        <a href="post-details.html" class="read-more">read-more</a>
+                                      </div>
 
-                                    </div>
+                                      <!-- Description -->
+                                      <p>{!!  substr(strip_tags($bangladeshPartOnes->paragraph), 0, 150) !!}.</p>
+
+                                  </div>
 
                                 </div>
                             </div><!-- Small Post End -->
-
+                            @endforeach
+                            @foreach($comPartTwo as $bangladeshPartOnes)
                             <!-- Small Post Start -->
                             <div class="post post-small post-list sports-post post-separator-border">
                                 <div class="post-wrap">
 
                                     <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-40.jpg" alt="post"></a>
+                                    <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                     <!-- Content -->
                                     <div class="content">
 
                                         <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health..</a></h5>
+                                        <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
                                         <!-- Meta -->
                                         <div class="meta fix">
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                         </div>
 
                                     </div>
 
                                 </div>
                             </div><!-- Small Post End -->
+                      @endforeach
 
-                            <!-- Small Post Start -->
-                            <div class="post post-small post-list sports-post post-separator-border">
-                                <div class="post-wrap">
-
-                                    <!-- Image -->
-                                    <a class="image" href="post-details.html"><img src="img/post/post-41.jpg" alt="post"></a>
-
-                                    <!-- Content -->
-                                    <div class="content">
-
-                                        <!-- Title -->
-                                        <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                        <!-- Meta -->
-                                        <div class="meta fix">
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div><!-- Small Post End -->
 
                         </div><!-- Post Block Body End -->
 
@@ -898,41 +854,9 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <div class="head sports-head">
 
                             <!-- Title -->
-                            <h4 class="title">Sports News</h4>
+                            <h4 class="title">খেলাধুলা</h4>
 
-                            <!-- Tab List Start -->
-                            <ul class="post-block-tab-list sports-post-tab-list nav d-none d-md-block">
-                                <li><a class="active" data-bs-toggle="tab" href="#sports-cat-1">Fashion</a></li>
-                                <li><a data-bs-toggle="tab" href="#sports-cat-2">Health</a></li>
-                                <li><a data-bs-toggle="tab" href="#sports-cat-1">Beauty</a></li>
-                                <li><a data-bs-toggle="tab" href="#sports-cat-2">Sports</a></li>
-                                <li><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">More</a>
 
-                                    <!-- Dropdown -->
-                                    <ul class="dropdown-menu">
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-1">Technology</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-2">Food</a></li>
-                                    </ul>
-
-                                </li>
-                            </ul><!-- Tab List End -->
-
-                            <!-- Tab List Start -->
-                            <ul class="post-block-tab-list sports-post-tab-list nav d-sm-block d-md-none">
-                                <li><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Category</a>
-
-                                    <!-- Dropdown -->
-                                    <ul class="dropdown-menu">
-                                        <li><a class="active" data-bs-toggle="tab" href="#sports-cat-1">Fashion</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-2">Health</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-1">Beauty</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-2">Sports</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-1">Technology</a></li>
-                                        <li><a data-bs-toggle="tab" href="#sports-cat-2">Food</a></li>
-                                    </ul>
-
-                                </li>
-                            </ul><!-- Tab List End -->
 
                         </div><!-- Post Block Head End -->
 
@@ -951,65 +875,55 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                         <div class="col-lg-8 col-12">
 
                                             <div class="row">
-
+                                                @foreach($sportsPartOne as $bangladeshPartOnes)
                                                 <!-- Overlay Post Start -->
                                                 <div class="post post-overlay post-large sports-post col-12 mb-20">
                                                     <div class="post-wrap">
 
                                                         <!-- Image -->
-                                                        <div class="image"><img src="img/post/post-37.jpg" alt="post"></div>
+                                                        <div class="image"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></div>
 
                                                         <!-- Content -->
                                                         <div class="content">
 
                                                             <!-- Title -->
-                                                            <h2 class="title"><a href="post-details.html">Mohammedan 05 - Arambagh 04</a></h2>
+                                                            <h2 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h2>
 
                                                             <!-- Meta -->
                                                             <div class="meta fix">
-                                                                <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+
+                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                             </div>
                                                         </div>
 
                                                     </div>
                                                 </div><!-- Overlay Post End -->
-
+                                                @endforeach
+                                                @foreach($sportsPartTwo as $bangladeshPartOnes)
                                                 <!-- Overlay Post Start -->
                                                 <div class="post post-overlay sports-post col-md-6 mb-20">
                                                     <div class="post-wrap">
 
                                                         <!-- Image -->
-                                                        <div class="image"><img src="img/post/post-38.jpg" alt="post"></div>
+                                                        <div class="image"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></div>
 
                                                         <!-- Content -->
                                                         <div class="content">
 
                                                             <!-- Title -->
-                                                            <h4 class="title"><a href="post-details.html">Sreekail 2 - 3 Comilla.</a></h4>
+                                                            <h4 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h4>
 
                                                             <!-- Meta -->
                                                             <div class="meta fix">
-                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                             </div>
                                                         </div>
 
                                                     </div>
                                                 </div><!-- Overlay Post End -->
+                                                @endforeach
 
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay sports-post col-md-6 mb-20">
-                                                    <div class="post-wrap">
 
-                                                        <!-- Image -->
-                                                        <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                                            <img src="img/post/post-39.jpg" alt="post">
-                                                            <!-- Video Popup -->
-                                                            <span class="video-btn"><i class="fa fa-play"></i></span>
-                                                        </a>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
 
                                             </div>
 
@@ -1020,82 +934,62 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                            <div class="row">
 
                                                <div class="col-lg-12 col-md-6 col-12 mb-20">
-
+                                                @foreach($sportsPartThree as $bangladeshPartOnes)
                                                     <!-- Small Post Start -->
                                                     <div class="post post-small post-list sports-post post-separator-border">
                                                         <div class="post-wrap">
 
                                                             <!-- Image -->
-                                                            <a class="image" href="post-details.html"><img src="img/post/post-40.jpg" alt="post"></a>
+                                                            <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                                             <!-- Content -->
                                                             <div class="content">
 
                                                                 <!-- Title -->
-                                                                <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health.</a></h5>
+                                                                <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
                                                                 <!-- Meta -->
                                                                 <div class="meta fix">
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                                 </div>
 
                                                             </div>
 
                                                         </div>
                                                     </div><!-- Small Post End -->
+@endforeach
 
-                                                    <!-- Small Post Start -->
-                                                    <div class="post post-small post-list sports-post post-separator-border">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="post-details.html"><img src="img/post/post-41.jpg" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div><!-- Small Post End -->
 
                                                 </div>
 
                                                <div class="col-lg-12 col-md-6 col-12 mb-20">
-
+                                                @foreach($sportsPartFour as $bangladeshPartOnes)
                                                     <!-- Post Start -->
                                                     <div class="post sports-post">
                                                         <div class="post-wrap">
 
                                                             <!-- Image -->
-                                                            <a class="image" href="post-details.html"><img src="img/post/post-42.jpg" alt="post"></a>
+                                                            <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                                             <!-- Content -->
                                                             <div class="content">
 
                                                                 <!-- Title -->
-                                                                <h4 class="title"><a href="post-details.html">Winning T20 Farewell To Safari.</a></h4>
+                                                                <h4 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h4>
 
                                                                 <!-- Meta -->
                                                                 <div class="meta fix">
-                                                                    <a href="#" class="meta-item date"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+
+                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                                 </div>
 
                                                                 <!-- Description s-->
-                                                                <p>Lorem ipsum dolor sit amet, consectet adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. </p>
+                                                                <p>{!!  substr(strip_tags($bangladeshPartOnes->paragraph), 0, 150) !!}</p>
 
                                                             </div>
                                                         </div>
                                                     </div><!-- Post End -->
+                                                    @endforeach
 
                                                </div>
 
@@ -1106,169 +1000,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
                                 </div><!-- Tab Pane End-->
 
-                                <!-- Tab Pane Start-->
-                                <div class="tab-pane fade" id="sports-cat-2">
 
-                                    <div class="row">
-
-                                        <!-- Overlay Post Wrapper Start -->
-                                        <div class="col-lg-8 col-12">
-
-                                            <div class="row">
-
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay post-large sports-post col-12 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <div class="image"><img src="img/post/post-37.jpg" alt="post"></div>
-
-                                                        <!-- Content -->
-                                                        <div class="content">
-
-                                                            <!-- Title -->
-                                                            <h2 class="title"><a href="post-details.html">Mohammedan 05 - Arambagh 04</a></h2>
-
-                                                            <!-- Meta -->
-                                                            <div class="meta fix">
-                                                                <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay sports-post col-md-6 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <div class="image"><img src="img/post/post-38.jpg" alt="post"></div>
-
-                                                        <!-- Content -->
-                                                        <div class="content">
-
-                                                            <!-- Title -->
-                                                            <h4 class="title"><a href="post-details.html">Sreekail 2 - 3 Comilla.</a></h4>
-
-                                                            <!-- Meta -->
-                                                            <div class="meta fix">
-                                                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                                <!-- Overlay Post Start -->
-                                                <div class="post post-overlay sports-post col-md-6 mb-20">
-                                                    <div class="post-wrap">
-
-                                                        <!-- Image -->
-                                                        <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                                            <img src="img/post/post-39.jpg" alt="post">
-                                                            <!-- Video Popup -->
-                                                            <span class="video-btn"><i class="fa fa-play"></i></span>
-                                                        </a>
-
-                                                    </div>
-                                                </div><!-- Overlay Post End -->
-
-                                            </div>
-
-                                        </div><!-- Overlay Post Wrapper End -->
-
-                                        <!-- Post Wrapper Start -->
-                                        <div class="col-lg-4 col-12">
-                                           <div class="row">
-
-                                               <div class="col-lg-12 col-md-6 col-12 mb-20">
-
-                                                    <!-- Post Start -->
-                                                    <div class="post sports-post">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="post-details.html"><img src="img/post/post-42.jpg" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h4 class="title"><a href="post-details.html">Winning T20 Farewell To Safari.</a></h4>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <a href="#" class="meta-item date"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                                </div>
-
-                                                                <!-- Description s-->
-                                                                <p>Lorem ipsum dolor sit amet, consectet adipiscing elits. Proin nec purus lectus. Aenean sodales quis eros is quis eleifend. </p>
-
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- Post End -->
-
-                                               </div>
-
-                                               <div class="col-lg-12 col-md-6 col-12 mb-20">
-
-                                                    <!-- Small Post Start -->
-                                                    <div class="post post-small post-list sports-post post-separator-border">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="post-details.html"><img src="img/post/post-40.jpg" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health.</a></h5>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div><!-- Small Post End -->
-
-                                                    <!-- Small Post Start -->
-                                                    <div class="post post-small post-list sports-post post-separator-border">
-                                                        <div class="post-wrap">
-
-                                                            <!-- Image -->
-                                                            <a class="image" href="post-details.html"><img src="img/post/post-41.jpg" alt="post"></a>
-
-                                                            <!-- Content -->
-                                                            <div class="content">
-
-                                                                <!-- Title -->
-                                                                <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                                <!-- Meta -->
-                                                                <div class="meta fix">
-                                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div><!-- Small Post End -->
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Post Wrapper End -->
-
-                                    </div>
-
-                                </div><!-- Tab Pane End-->
 
                             </div><!-- Tab Content End-->
 
@@ -1285,7 +1017,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
                 <div class="col-12">
 
-                    <a href="#" class="post-middle-banner"><img src="img/banner/post-middle-1.jpg" alt="Banner"></a>
+                    <a href="#" class="post-middle-banner"><img src="{{ asset('/') }}{{ $homead4 }}" alt="Banner"></a>
 
                 </div>
 
@@ -1293,7 +1025,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
             <!-- Youtube Video Row Start -->
             <div class="row">
-
+@foreach($videoPartOne as $bangladeshPartOnes)
                 <!-- Video Play List Start-->
                 <div class="col-lg-4 col-md-6 col-12 mb-50">
 
@@ -1303,70 +1035,22 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <div class="post-wrap">
 
                             <!-- Image -->
-                            <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                <img src="img/post/post-47.jpg" alt="post">
+                            <a href="{{ asset('/') }}{{ $bangladeshPartOnes->y_link }}" class="image video-popup">
+                                <img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post">
                                 <span class="video-btn"><i class="fa fa-play"></i></span>
                             </a>
 
                             <!-- Category -->
-                            <a href="#" class="category sports">sports</a>
+                            <a href="{{route('post',['id'=>52])}}" class="category sports">ভিডিও গ্যালারি</a>
 
                         </div>
                     </div><!-- Overlay Post End -->
 
                 </div>
                 <!-- Video Play List End-->
-
-                   <!-- Video Play List Start-->
-                   <div class="col-lg-4 col-md-6 col-12 mb-50">
+                @endforeach
 
 
-                    <!-- Overlay Post Start -->
-                    <div class="post post-overlay hero-post">
-                        <div class="post-wrap">
-
-                            <!-- Image -->
-                            <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                <img src="img/post/post-47.jpg" alt="post">
-                                <span class="video-btn"><i class="fa fa-play"></i></span>
-                            </a>
-
-                            <!-- Category -->
-                            <a href="#" class="category sports">sports</a>
-
-
-
-                        </div>
-                    </div><!-- Overlay Post End -->
-
-                </div>
-                <!-- Video Play List End-->
-
-
-                    <!-- Video Play List Start-->
-                    <div class="col-lg-4 col-md-6 col-12 mb-50">
-
-
-                        <!-- Overlay Post Start -->
-                        <div class="post post-overlay hero-post">
-                            <div class="post-wrap">
-
-                                <!-- Image -->
-                                <a href="https://www.youtube.com/watch?v=S50yhCPOyQw" class="image video-popup">
-                                    <img src="img/post/post-47.jpg" alt="post">
-                                    <span class="video-btn"><i class="fa fa-play"></i></span>
-                                </a>
-
-                                <!-- Category -->
-                                <a href="#" class="category sports">sports</a>
-
-
-
-                            </div>
-                        </div><!-- Overlay Post End -->
-
-                    </div>
-                    <!-- Video Play List End-->
 
 
 
@@ -1386,41 +1070,9 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                         <div class="head life-style-head">
 
                             <!-- Title -->
-                            <h4 class="title">Life Style</h4>
+                            <h4 class="title">বিনোদন</h4>
 
-                            <!-- Tab List Start -->
-                            <ul class="post-block-tab-list life-style-post-tab-list nav d-none d-md-block">
-                                <li><a class="active" data-bs-toggle="tab" href="#life-style-cat-1">Fashion</a></li>
-                                <li><a data-bs-toggle="tab" href="#life-style-cat-2">Health</a></li>
-                                <li><a data-bs-toggle="tab" href="#life-style-cat-1">Beauty</a></li>
-                                <li><a data-bs-toggle="tab" href="#life-style-cat-2">Sports</a></li>
-                                <li><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">More</a>
 
-                                    <!-- Dropdown -->
-                                    <ul class="dropdown-menu">
-                                        <li><a data-bs-toggle="tab" href="#life-style-cat-1">Technology</a></li>
-                                        <li><a data-bs-toggle="tab" href="#life-style-cat-2">Food</a></li>
-                                    </ul>
-
-                                </li>
-                            </ul><!-- Tab List End -->
-
-                            <!-- Tab List Start -->
-                            <ul class="post-block-tab-list life-style-post-tab-list nav d-sm-block d-md-none">
-                                <li><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Category</a>
-
-                                    <!-- Dropdown -->
-                                    <ul class="dropdown-menu">
-                                        <li><a class="active" data-bs-toggle="tab" href="#life-style-cat-1">Fashion</a></li>
-                                        <li><a data-bs-toggle="tab" href="#life-style-cat-2">Health</a></li>
-                                        <li><a data-bs-toggle="tab" href="#life-style-cat-1">Beauty</a></li>
-                                        <li><a data-bs-toggle="tab" href="#life-style-cat-2">Sports</a></li>
-                                        <li><a data-bs-toggle="tab" href="#life-style-cat-1">Technology</a></li>
-                                        <li><a data-bs-toggle="tab" href="#life-style-cat-2">Food</a></li>
-                                    </ul>
-
-                                </li>
-                            </ul><!-- Tab List End -->
 
                         </div><!-- Post Block Head End -->
 
@@ -1434,249 +1086,62 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                 <div class="tab-pane fade show active" id="life-style-cat-1">
 
                                     <div class="row">
-
+                                        @foreach($enPartOne as $bangladeshPartOnes)
                                         <!-- Overlay Post Start -->
                                         <div class="post post-large post-overlay life-style-post post-separator-border col-12">
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <div class="image"><img src="img/post/post-55.jpg" alt="post"></div>
+                                                <div class="image"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></div>
 
                                                 <!-- Content -->
                                                 <div class="content">
 
                                                     <!-- Title -->
-                                                    <h4 class="title"><a href="post-details.html">Creat Your Home With A Great Designer.</a></h4>
+                                                    <h4 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h4>
 
                                                     <!-- Meta -->
                                                     <div class="meta fix">
-                                                        <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                     </div>
                                                 </div>
 
                                             </div>
                                         </div><!-- Overlay Post End -->
-
+                                        @endforeach
+                                        @foreach($enPartTwo as $bangladeshPartOnes)
                                         <!-- Small Post Start -->
                                         <div class="post post-small post-list life-style-post post-separator col-md-6 col-12">
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-21.jpg" alt="post"></a>
+                                                <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                                 <!-- Content -->
                                                 <div class="content">
 
                                                     <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health.</a></h5>
+                                                    <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
                                                     <!-- Meta -->
                                                     <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                     </div>
 
                                                 </div>
 
                                             </div>
                                         </div><!-- Small Post End -->
+                                        @endforeach
 
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator col-md-6 col-12">
-                                            <div class="post-wrap">
 
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-22.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-23.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Fish Fry With green vegetables.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-24.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Apple, time to IOS With macos.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
 
                                     </div>
 
                                 </div><!-- Tab Pane End-->
 
-                                <!-- Tab Pane Start-->
-                                <div class="tab-pane fade" id="life-style-cat-2">
 
-                                    <div class="row">
-
-                                        <!-- Overlay Post Start -->
-                                        <div class="post post-large post-overlay life-style-post post-separator-border col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <div class="image"><img src="img/post/post-55.jpg" alt="post"></div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h4 class="title"><a href="post-details.html">Creat Your Home With A Great Designer.</a></h4>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <a href="#" class="meta-item author"><i class="fa fa-user"></i> Sathi Bhuiyan</a>
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Overlay Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-21.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Hynpodia helps female travelers find health.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-22.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-23.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Fish Fry With green vegetables.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-24.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Apple, time to IOS With macos.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                    </div>
-
-                                </div><!-- Tab Pane End-->
 
                             </div><!-- Tab Content End-->
 
@@ -1700,7 +1165,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                 <div class="head life-style-head">
 
                                     <!-- Title -->
-                                    <h4 class="title">Interior News</h4>
+                                    <h4 class="title">যুক্তরাজ্য/যুক্তরাষ্ট্র</h4>
 
                                 </div><!-- Sidebar Block Head End -->
 
@@ -1709,236 +1174,31 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
                                     <!-- Sidebar Post Slider Start -->
                                     <div class="five-row-post-carousel row-post-carousel post-block-carousel life-style-post-carousel">
-
+                                        @foreach($juktoPartOne as $bangladeshPartOnes)
                                         <!-- Small Post Start -->
                                         <div class="post post-small post-list life-style-post col">
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-56.jpg" alt="post"></a>
+                                                <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                                 <!-- Content -->
                                                 <div class="content">
 
                                                     <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Who Else Wants To Be Successful With education.</a></h5>
+                                                    <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
                                                     <!-- Meta -->
                                                     <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                     </div>
 
                                                 </div>
 
                                             </div>
                                         </div><!-- Small Post End -->
+@endforeach
 
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-57.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">The Biggest Contribution Of Education To Humanity.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-58.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">7 Outrageous Ideas For Your Graphic Class.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-59.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Everything You Need To Know About Education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-60.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Who Else Wants To Be Successful With education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-56.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Who Else Wants To Be Successful With education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-57.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">The Biggest Contribution Of Education To Humanity.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-58.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">7 Outrageous Ideas For Your Graphic Class.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-59.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Everything You Need To Know About Education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post col">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-60.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Who Else Wants To Be Successful With education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
 
                                     </div><!-- Sidebar Post Slider End -->
 
@@ -1970,7 +1230,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                 <div class="head education-head">
 
                                     <!-- Title -->
-                                    <h4 class="title">other news</h4>
+                                    <h4 class="title">ইউরোপ</h4>
 
                                 </div><!-- Sidebar Block Head End -->
 
@@ -1979,121 +1239,31 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
                                     <!-- Sidebar Post Start -->
                                     <div class="row">
-
+                                        @foreach($curopPartOne as $bangladeshPartOnes)
                                         <!-- Small Post Start -->
                                         <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-13.jpg" alt="post"></a>
+                                                <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                                 <!-- Content -->
                                                 <div class="content">
 
                                                     <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Who Else Wants To Be Successful With education.</a></h5>
+                                                    <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
                                                     <!-- Meta -->
                                                     <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                     </div>
 
                                                 </div>
 
                                             </div>
                                         </div><!-- Small Post End -->
+@endforeach
 
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-16.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">The Biggest Contribution Of Education To Humanity.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-23.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">7 Outrageous Ideas For Your Graphic Class.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-33.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Everything You Need To Know About Education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-34.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Everything You Need To Know About Education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
 
                                     </div><!-- Sidebar Post End -->
 
@@ -2120,7 +1290,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                             <div class="head education-head">
 
                                 <!-- Title -->
-                                <h4 class="title">other news</h4>
+                                <h4 class="title">মুখোমুখি</h4>
 
                             </div><!-- Sidebar Block Head End -->
 
@@ -2130,120 +1300,32 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                 <!-- Sidebar Post Start -->
                                 <div class="row">
 
+                                    @foreach($motaPartOne as $bangladeshPartOnes)
                                     <!-- Small Post Start -->
                                     <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
                                         <div class="post-wrap">
 
                                             <!-- Image -->
-                                            <a class="image" href="post-details.html"><img src="img/post/post-13.jpg" alt="post"></a>
+                                            <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                             <!-- Content -->
                                             <div class="content">
 
                                                 <!-- Title -->
-                                                <h5 class="title"><a href="post-details.html">Who Else Wants To Be Successful With education.</a></h5>
+                                                <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
                                                 <!-- Meta -->
                                                 <div class="meta fix">
-                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                 </div>
 
                                             </div>
 
                                         </div>
                                     </div><!-- Small Post End -->
+@endforeach
 
-                                    <!-- Small Post Start -->
-                                    <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                        <div class="post-wrap">
 
-                                            <!-- Image -->
-                                            <a class="image" href="post-details.html"><img src="img/post/post-16.jpg" alt="post"></a>
-
-                                            <!-- Content -->
-                                            <div class="content">
-
-                                                <!-- Title -->
-                                                <h5 class="title"><a href="post-details.html">The Biggest Contribution Of Education To Humanity.</a></h5>
-
-                                                <!-- Meta -->
-                                                <div class="meta fix">
-                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div><!-- Small Post End -->
-
-                                    <!-- Small Post Start -->
-                                    <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                        <div class="post-wrap">
-
-                                            <!-- Image -->
-                                            <a class="image" href="post-details.html"><img src="img/post/post-23.jpg" alt="post"></a>
-
-                                            <!-- Content -->
-                                            <div class="content">
-
-                                                <!-- Title -->
-                                                <h5 class="title"><a href="post-details.html">7 Outrageous Ideas For Your Graphic Class.</a></h5>
-
-                                                <!-- Meta -->
-                                                <div class="meta fix">
-                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div><!-- Small Post End -->
-
-                                    <!-- Small Post Start -->
-                                    <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                        <div class="post-wrap">
-
-                                            <!-- Image -->
-                                            <a class="image" href="post-details.html"><img src="img/post/post-33.jpg" alt="post"></a>
-
-                                            <!-- Content -->
-                                            <div class="content">
-
-                                                <!-- Title -->
-                                                <h5 class="title"><a href="post-details.html">Everything You Need To Know About Education.</a></h5>
-
-                                                <!-- Meta -->
-                                                <div class="meta fix">
-                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div><!-- Small Post End -->
-
-                                    <!-- Small Post Start -->
-                                    <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                        <div class="post-wrap">
-
-                                            <!-- Image -->
-                                            <a class="image" href="post-details.html"><img src="img/post/post-34.jpg" alt="post"></a>
-
-                                            <!-- Content -->
-                                            <div class="content">
-
-                                                <!-- Title -->
-                                                <h5 class="title"><a href="post-details.html">Everything You Need To Know About Education.</a></h5>
-
-                                                <!-- Meta -->
-                                                <div class="meta fix">
-                                                    <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div><!-- Small Post End -->
 
                                 </div><!-- Sidebar Post End -->
 
@@ -2270,7 +1352,7 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                 <div class="head education-head">
 
                                     <!-- Title -->
-                                    <h4 class="title">other news</h4>
+                                    <h4 class="title">প্রযুক্তি</h4>
 
                                 </div><!-- Sidebar Block Head End -->
 
@@ -2280,120 +1362,30 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
                                     <!-- Sidebar Post Start -->
                                     <div class="row">
 
+                                        @foreach($proPartOne as $bangladeshPartOnes)
                                         <!-- Small Post Start -->
                                         <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
                                             <div class="post-wrap">
 
                                                 <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-13.jpg" alt="post"></a>
+                                                <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
 
                                                 <!-- Content -->
                                                 <div class="content">
 
                                                     <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Who Else Wants To Be Successful With education.</a></h5>
+                                                    <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
 
                                                     <!-- Meta -->
                                                     <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
+                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
                                                     </div>
 
                                                 </div>
 
                                             </div>
                                         </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-16.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">The Biggest Contribution Of Education To Humanity.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-23.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">7 Outrageous Ideas For Your Graphic Class.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-33.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Everything You Need To Know About Education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
-
-                                        <!-- Small Post Start -->
-                                        <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
-                                            <div class="post-wrap">
-
-                                                <!-- Image -->
-                                                <a class="image" href="post-details.html"><img src="img/post/post-34.jpg" alt="post"></a>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Title -->
-                                                    <h5 class="title"><a href="post-details.html">Everything You Need To Know About Education.</a></h5>
-
-                                                    <!-- Meta -->
-                                                    <div class="meta fix">
-                                                        <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2023</span>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div><!-- Small Post End -->
+@endforeach
 
                                     </div><!-- Sidebar Post End -->
 
@@ -2408,6 +1400,382 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
             </div><!-- Technology, Fashion & Other Post Row End -->
 
+
+                        <!-- Technology, Fashion & Other Post Row Start -->
+                        <div class="row">
+
+                            <!-- Sidebar Start -->
+                            <div class="col-lg-4 col-12 mb-50">
+                               <div class="row">
+
+                                   <!-- Single Sidebar -->
+                                   <div class="single-sidebar col-12">
+
+                                       <!-- Sidebar Block Wrapper -->
+                                       <div class="sidebar-block-wrapper">
+
+                                           <!-- Sidebar Block Head Start -->
+                                           <div class="head education-head">
+
+                                               <!-- Title -->
+                                               <h4 class="title">ভ্রমন</h4>
+
+                                           </div><!-- Sidebar Block Head End -->
+
+                                           <!-- Sidebar Block Body Start -->
+                                           <div class="body">
+
+                                               <!-- Sidebar Post Start -->
+                                               <div class="row">
+                                                   @foreach($vorPartOne as $bangladeshPartOnes)
+                                                   <!-- Small Post Start -->
+                                                   <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                                       <div class="post-wrap">
+
+                                                           <!-- Image -->
+                                                           <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
+
+                                                           <!-- Content -->
+                                                           <div class="content">
+
+                                                               <!-- Title -->
+                                                               <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
+
+                                                               <!-- Meta -->
+                                                               <div class="meta fix">
+                                                                   <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+                                                               </div>
+
+                                                           </div>
+
+                                                       </div>
+                                                   </div><!-- Small Post End -->
+           @endforeach
+
+
+                                               </div><!-- Sidebar Post End -->
+
+                                           </div><!-- Sidebar Block Body End -->
+
+                                       </div>
+
+                                   </div>
+
+                               </div>
+                           </div><!-- Sidebar End -->
+
+                          <!-- Sidebar Start -->
+                          <div class="col-lg-4 col-12 mb-50">
+                           <div class="row">
+
+                               <!-- Single Sidebar -->
+                               <div class="single-sidebar col-12">
+
+                                   <!-- Sidebar Block Wrapper -->
+                                   <div class="sidebar-block-wrapper">
+
+                                       <!-- Sidebar Block Head Start -->
+                                       <div class="head education-head">
+
+                                           <!-- Title -->
+                                           <h4 class="title">এক্সক্লুসিভ</h4>
+
+                                       </div><!-- Sidebar Block Head End -->
+
+                                       <!-- Sidebar Block Body Start -->
+                                       <div class="body">
+
+                                           <!-- Sidebar Post Start -->
+                                           <div class="row">
+
+                                               @foreach($exPartOne as $bangladeshPartOnes)
+                                               <!-- Small Post Start -->
+                                               <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                                   <div class="post-wrap">
+
+                                                       <!-- Image -->
+                                                       <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
+
+                                                       <!-- Content -->
+                                                       <div class="content">
+
+                                                           <!-- Title -->
+                                                           <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
+
+                                                           <!-- Meta -->
+                                                           <div class="meta fix">
+                                                               <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+                                                           </div>
+
+                                                       </div>
+
+                                                   </div>
+                                               </div><!-- Small Post End -->
+           @endforeach
+
+
+
+                                           </div><!-- Sidebar Post End -->
+
+                                       </div><!-- Sidebar Block Body End -->
+
+                                   </div>
+
+                               </div>
+
+                           </div>
+                       </div><!-- Sidebar End -->
+
+                           <!-- Sidebar Start -->
+                           <div class="col-lg-4 col-12 mb-50">
+                               <div class="row">
+
+                                   <!-- Single Sidebar -->
+                                   <div class="single-sidebar col-12">
+
+                                       <!-- Sidebar Block Wrapper -->
+                                       <div class="sidebar-block-wrapper">
+
+                                           <!-- Sidebar Block Head Start -->
+                                           <div class="head education-head">
+
+                                               <!-- Title -->
+                                               <h4 class="title">সিলেট</h4>
+
+                                           </div><!-- Sidebar Block Head End -->
+
+                                           <!-- Sidebar Block Body Start -->
+                                           <div class="body">
+
+                                               <!-- Sidebar Post Start -->
+                                               <div class="row">
+
+                                                   @foreach($syPartOne as $bangladeshPartOnes)
+                                                   <!-- Small Post Start -->
+                                                   <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                                       <div class="post-wrap">
+
+                                                           <!-- Image -->
+                                                           <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
+
+                                                           <!-- Content -->
+                                                           <div class="content">
+
+                                                               <!-- Title -->
+                                                               <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
+
+                                                               <!-- Meta -->
+                                                               <div class="meta fix">
+                                                                   <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+                                                               </div>
+
+                                                           </div>
+
+                                                       </div>
+                                                   </div><!-- Small Post End -->
+           @endforeach
+
+                                               </div><!-- Sidebar Post End -->
+
+                                           </div><!-- Sidebar Block Body End -->
+
+                                       </div>
+
+                                   </div>
+
+                               </div>
+                           </div><!-- Sidebar End -->
+
+                       </div><!-- Technology, Fashion & Other Post Row End -->
+
+
+                           <!-- Technology, Fashion & Other Post Row Start -->
+                           <div class="row">
+
+                            <!-- Sidebar Start -->
+                            <div class="col-lg-4 col-12 mb-50">
+                               <div class="row">
+
+                                   <!-- Single Sidebar -->
+                                   <div class="single-sidebar col-12">
+
+                                       <!-- Sidebar Block Wrapper -->
+                                       <div class="sidebar-block-wrapper">
+
+                                           <!-- Sidebar Block Head Start -->
+                                           <div class="head education-head">
+
+                                               <!-- Title -->
+                                               <h4 class="title">কৃষি </h4>
+
+                                           </div><!-- Sidebar Block Head End -->
+
+                                           <!-- Sidebar Block Body Start -->
+                                           <div class="body">
+
+                                               <!-- Sidebar Post Start -->
+                                               <div class="row">
+                                                   @foreach($agriPartOne as $bangladeshPartOnes)
+                                                   <!-- Small Post Start -->
+                                                   <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                                       <div class="post-wrap">
+
+                                                           <!-- Image -->
+                                                           <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
+
+                                                           <!-- Content -->
+                                                           <div class="content">
+
+                                                               <!-- Title -->
+                                                               <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
+
+                                                               <!-- Meta -->
+                                                               <div class="meta fix">
+                                                                   <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+                                                               </div>
+
+                                                           </div>
+
+                                                       </div>
+                                                   </div><!-- Small Post End -->
+           @endforeach
+
+
+                                               </div><!-- Sidebar Post End -->
+
+                                           </div><!-- Sidebar Block Body End -->
+
+                                       </div>
+
+                                   </div>
+
+                               </div>
+                           </div><!-- Sidebar End -->
+
+                          <!-- Sidebar Start -->
+                          <div class="col-lg-4 col-12 mb-50">
+                           <div class="row">
+
+                               <!-- Single Sidebar -->
+                               <div class="single-sidebar col-12">
+
+                                   <!-- Sidebar Block Wrapper -->
+                                   <div class="sidebar-block-wrapper">
+
+                                       <!-- Sidebar Block Head Start -->
+                                       <div class="head education-head">
+
+                                           <!-- Title -->
+                                           <h4 class="title">স্বাস্থ্য</h4>
+
+                                       </div><!-- Sidebar Block Head End -->
+
+                                       <!-- Sidebar Block Body Start -->
+                                       <div class="body">
+
+                                           <!-- Sidebar Post Start -->
+                                           <div class="row">
+
+                                               @foreach($hePartOne as $bangladeshPartOnes)
+                                               <!-- Small Post Start -->
+                                               <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                                   <div class="post-wrap">
+
+                                                       <!-- Image -->
+                                                       <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
+
+                                                       <!-- Content -->
+                                                       <div class="content">
+
+                                                           <!-- Title -->
+                                                           <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
+
+                                                           <!-- Meta -->
+                                                           <div class="meta fix">
+                                                               <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+                                                           </div>
+
+                                                       </div>
+
+                                                   </div>
+                                               </div><!-- Small Post End -->
+           @endforeach
+
+
+
+                                           </div><!-- Sidebar Post End -->
+
+                                       </div><!-- Sidebar Block Body End -->
+
+                                   </div>
+
+                               </div>
+
+                           </div>
+                       </div><!-- Sidebar End -->
+
+                           <!-- Sidebar Start -->
+                           <div class="col-lg-4 col-12 mb-50">
+                               <div class="row">
+
+                                   <!-- Single Sidebar -->
+                                   <div class="single-sidebar col-12">
+
+                                       <!-- Sidebar Block Wrapper -->
+                                       <div class="sidebar-block-wrapper">
+
+                                           <!-- Sidebar Block Head Start -->
+                                           <div class="head education-head">
+
+                                               <!-- Title -->
+                                               <h4 class="title">অন্যান্য</h4>
+
+                                           </div><!-- Sidebar Block Head End -->
+
+                                           <!-- Sidebar Block Body Start -->
+                                           <div class="body">
+
+                                               <!-- Sidebar Post Start -->
+                                               <div class="row">
+
+                                                   @foreach($othPartOne as $bangladeshPartOnes)
+                                                   <!-- Small Post Start -->
+                                                   <div class="post post-small post-list life-style-post post-separator-border col-lg-12 col-md-6 col-12">
+                                                       <div class="post-wrap">
+
+                                                           <!-- Image -->
+                                                           <a class="image" href="{{ route('singlePost',$bangladeshPartOnes->id) }}"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="post"></a>
+
+                                                           <!-- Content -->
+                                                           <div class="content">
+
+                                                               <!-- Title -->
+                                                               <h5 class="title"><a href="{{ route('singlePost',$bangladeshPartOnes->id) }}">{{ $bangladeshPartOnes->title }}</a></h5>
+
+                                                               <!-- Meta -->
+                                                               <div class="meta fix">
+                                                                   <span class="meta-item date"><i class="fa fa-clock-o"></i>{{ str_replace($engDATE, $bangDATE,$bangladeshPartOnes->created_at->format('d F Y')) }}</span>
+                                                               </div>
+
+                                                           </div>
+
+                                                       </div>
+                                                   </div><!-- Small Post End -->
+           @endforeach
+
+                                               </div><!-- Sidebar Post End -->
+
+                                           </div><!-- Sidebar Block Body End -->
+
+                                       </div>
+
+                                   </div>
+
+                               </div>
+                           </div><!-- Sidebar End -->
+
+                       </div><!-- Technology, Fashion & Other Post Row End -->
+
         </div>
     </div><!-- Post Section End -->
 
@@ -2417,13 +1785,9 @@ $bangDATE = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯',
 
             <!-- Full Width Instagram Carousel Start -->
             <div class="fullwidth-instagram-carousel instagram-carousel">
-
-                <a href="#" class="instagram-item"><img src="img/instagram/1.jpg" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="img/instagram/2.jpg" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="img/instagram/3.jpg" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="img/instagram/4.jpg" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="img/instagram/5.jpg" alt="instagram"></a>
-                <a href="#" class="instagram-item"><img src="img/instagram/6.jpg" alt="instagram"></a>
+                @foreach($othPartOne as $bangladeshPartOnes)
+                <a href="{{ route('singlePost',$bangladeshPartOnes->id) }}" class="instagram-item"><img src="{{ asset('/') }}{{ $bangladeshPartOnes->cover_image }}" alt="instagram"></a>
+@endforeach
 
             </div><!-- Full Width Instagram Carousel End -->
         </div>

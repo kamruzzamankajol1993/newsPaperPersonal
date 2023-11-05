@@ -4,11 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta property="og:url"           content="https://tv19online.com" />
+    <meta property="og:url"           content="{{ url()->current() }}" />
     <meta property="og:type"          content="NEWS" />
+    @if(Route::is('singlePost'))
+    <meta property="og:title"         content="{{ $news->title }}" />
+    <meta property="og:description"   content="{!!  substr(strip_tags($bangladeshPartOnes->paragraph), 0, 100) !!}" />
+    <meta property="og:image"         content="{{ asset('/') }}{{ $news->cover_image }}"  />
+    @else
     <meta property="og:title"         content="TV19 Online" />
     <meta property="og:description"   content="tv19online.com is one of the most reliable and popular local daily newspaper. We provide latest reliable local news about various categories for 24/7 days." />
     <meta property="og:image"         content="{{ asset('/') }}{{ $logo }}"  />
+    @endif
+
+
 <meta property="og:image:width" content="200"/>
 <meta property="og:image:height" content="200"/>
 
@@ -34,7 +42,8 @@
 </head>
 
 <body>
-
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v18.0&appId=771937424778588" nonce="Bkc3btIf"></script>
 <!-- Main Wrapper -->
 <div id="main-wrapper">
 

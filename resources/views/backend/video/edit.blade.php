@@ -62,10 +62,18 @@ Edit News  |{{ $ins_name }}
 
 
     <div class="form-group col-md-12">
+        <label for="inputEmail4">Cover Image</label>
+        <input type="file" class="form-control" name="cover_imge" value="{{$post->cover_imge}}" placeholder="Cover Video Link">
+        <img src="{{asset('/')}}{{$post->cover_image}}" height="50px" width="50px">
+      </div>
+
+    <div class="form-group col-md-12">
         <label for="inputEmail4">Cover Video</label>
-        <input type="text" class="form-control" name="cover_image" value="{{$post->cover_image}}" placeholder="Cover Video Link">
+        <input type="text" class="form-control" name="y_link" value="{{$post->y_link}}" placeholder="Cover Video Link">
 
       </div>
+
+
     <div class="form-group col-md-12">
         <label for="inputEmail4">Caption</label>
         <input type="text" class="form-control" name="caption" value="{{$post->caption}}" placeholder="Caption">

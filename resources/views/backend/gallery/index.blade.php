@@ -38,9 +38,9 @@ Advertisement List |{{ $ins_name }}
             @if (Auth::guard('admin')->user()->can('ad_add'))
 
 
-                <a href="{{ route('admin.ad.create') }}" class="btn btn-success dropdown-toggle waves-effect  btn-sm waves-light" type="button" >
+                {{-- <a href="{{ route('admin.ad.create') }}" class="btn btn-success dropdown-toggle waves-effect  btn-sm waves-light" type="button" >
                     <i class="far fa-calendar-plus  mr-2"></i>Add Advertisement
-                </a>
+                </a> --}}
 @endif
             </div>
         </div>
@@ -74,13 +74,56 @@ Advertisement List |{{ $ins_name }}
     @foreach($allPost as $cat)
     <?php $counter++;?>
     @if($cat->id == 14)
-    
-    
+
+
     @else
     <tr>
         <th scope="row">{{$counter}}</th>
         <td>{{$cat->name}}</td>
-        <td><img src="{{asset($cat->image)}}" height="150" width="300"></td>
+        <td>
+
+            <img src="{{asset($cat->image)}}" height="150" width="300">
+
+            @if($cat->id==16)
+
+            Image Size: 734*90
+
+            @elseif($cat->id==17)
+
+            Image Size: 370*272
+
+            @elseif($cat->id==18)
+
+            Image Size: 370*272
+
+            @elseif($cat->id==19)
+
+            Image Size: 370*272
+
+            @elseif($cat->id==20)
+
+            Image Size: 1170*282
+
+            @elseif($cat->id==21)
+
+            Image Size: 370*451
+
+            @elseif($cat->id==22)
+
+            Image Size: 370*272
+
+            @elseif($cat->id==23)
+
+            Image Size: 370*451
+
+            @elseif($cat->id==24)
+
+            Image Size: 370*272
+
+            @endif
+
+
+        </td>
         <td>
           @if($cat->status==0)
        Inactive
@@ -90,9 +133,9 @@ Advertisement List |{{ $ins_name }}
         </td>
       <td>
         @if (Auth::guard('admin')->user()->can('ad_delete'))
-        <button class="btn btn-danger" type="button" onclick="deleteTag({{ $cat->id }})" data-toggle="tooltip" data-placement="top" title="Delete">
+        {{-- <button class="btn btn-danger" type="button" onclick="deleteTag({{ $cat->id }})" data-toggle="tooltip" data-placement="top" title="Delete">
              <i class="fas fa-trash-alt"></i>
-                                                </button>
+                                                </button> --}}
             <form id="delete-form-{{ $cat->id }}" action="{{ route('admin.ad.delete',$cat->id) }}" method="POST" style="display: none;">
                 @method('DELETE')
                 @csrf

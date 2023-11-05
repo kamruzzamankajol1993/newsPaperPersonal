@@ -1,7 +1,7 @@
 @extends('new_front.master.master')
 
 @section('title')
-Contributer
+টিভি ১৯ পরিবার
 @endsection
 
 @section('body')
@@ -133,42 +133,43 @@ section .section-title {
     border-radius: 50%;
 }
 </style>
-<div class="section" id="team" style="background-color:#EFF3F4;margin-top: 10px;padding-top: 15px">
-    
-    
+<div class="post-section section mt-50">
+
+
+
      <div class="container">
-        <h5 class="section-title h1">Contributer</h5>
+        <h5 class="section-title h1">টিভি ১৯ পরিবার</h5>
         <div class="row">
             <!-- Team member -->
            @foreach($team_list_all as $all_team_list)
-            <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="image-flip" >
                     <div class="mainflip flip-0">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center mt-3" >
-                                    
+
                                        @if(empty($all_team_list->image))
-                                    <p><img class=" img-fluid" style="margin-top:20px;" src=" https://bangla.dailybanglatimes.com/public/uploads/1673778726.png" alt="card image"></p>
+                                    <p><img class=" img-fluid" style="margin-top:20px;" src="{{ asset('/') }}{{ $logo }}" alt="card image"></p>
                                      @else
-                                       <p><img class=" img-fluid" style="margin-top:20px;" src="https://bangla.dailybanglatimes.com/{{$all_team_list->image}}" alt="card image"></p>
+                                       <p><img class=" img-fluid" style="margin-top:20px;" src="{{ asset('/') }}{{$all_team_list->image}}" alt="card image"></p>
                                      @endif
                                     <h4 class="card-title">{{$all_team_list->name}}</h4>
-                                    <h4 class="card-title">{{$all_team_list->position}}</h4>
-                                
-                                
-                                 
+                                    <h4 class="card-title">{{$all_team_list->p_status}}</h4>
+
+
+
                                 </div>
                             </div>
                         </div>
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-5">
-                         
+
                                     <p class="card-text mt-5 " style="margin-top:15px; text-align: justify;padding:10px;">{{$all_team_list->des}}</p>
                                     <ul class="list-inline">
                                           @if(empty($all_team_list->fblink))
-      
+
       @else
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="{{$all_team_list->fblink}}">
@@ -177,7 +178,7 @@ section .section-title {
                                         </li>
                                         @endif
                                         					 @if(empty($all_team_list->twlink))
-      
+
       @else
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="{{$all_team_list->twlink}}">
@@ -186,7 +187,7 @@ section .section-title {
                                         </li>
                                         @endif
                                         				 @if(empty($all_team_list->yolink))
-      
+
       @else
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="{{$all_team_list->yolink}}">
@@ -195,7 +196,7 @@ section .section-title {
                                         </li>
                                         @endif
                                         		 @if(empty($all_team_list->inslink))
-      
+
       @else
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="{{$all_team_list->inslink}}">
@@ -211,9 +212,9 @@ section .section-title {
                 </div>
             </div>
             <!-- ./Team member -->
-           
+
         @endforeach
-         
+
 
         </div>
     </div>

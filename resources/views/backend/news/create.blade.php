@@ -150,19 +150,19 @@ Create News  |{{ $ins_name }}
           <option value="0">English</option>
         </select>
       </div>
-      
+
       <div class="form-group col-md-12 mt-2">
         <label for="inputState">Extra Publish Option</label>
         <select id="inputState" class="form-control" name="extra_publish_option">
-          <option selected value="1">Inside Slider</option>
-          <option value="0">Under Madam Image</option>
+          <option selected value="1">Left Side</option>
+          <option value="0">Right Side</option>
         </select>
       </div>
 
      <div class="form-group col-md-12 mt-2">
 
           <input type="submit" class="btn btn-primary col-12" name="dvalue" value="submit">
-          
+
           <input type="submit" class="btn btn-info col-12 mt-2" name="dvalue" value="draft">
         </div>
 
@@ -179,14 +179,14 @@ Create News  |{{ $ins_name }}
     id = id || '#preview_img';
     if (input.files && input.files[0]) {
         var reader = new FileReader();
- 
+
         reader.onload = function (e) {
             $(id)
                     .attr('src', e.target.result)
                     .width(200)
                     .height(150);
         };
- 
+
         reader.readAsDataURL(input.files[0]);
     }
  }

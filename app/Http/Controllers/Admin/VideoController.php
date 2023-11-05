@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\subcategory;
 use App\Models\News;
 use App\Models\Post;
+use App\Models\Adver;
 use Image;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,35 @@ class VideoController extends Controller
         $video->paragraph=$request->content;
         $video->status = $request->status;
         $video->public_site=$request->public_site;
+        $video->y_link=$request->y_link;
+        if ($request->hasfile('cover_image')) {
+
+            $productImage = $request->file('cover_image');
+              $imageName = time().$productImage->getClientOriginalName();
+              $directory = 'public/uploads/';
+              $imageUrl = $directory.$imageName;
+
+
+              $allPost=Adver::where('name','Social Banner')->latest()->value('image');
+
+              $rrt = url($allPost);
+
+               //dd($allPost);
+
+              $watermark = Image::make($rrt);
+
+
+             //Image::make($productImage)->resize(700,390)->insert($watermark, 'bottom-right', 10, 10)->save($imageUrl);
+
+              $img=Image::make($productImage)->resize(700,390);
+              $img->insert($watermark, 'bottom-right', 0);
+              $img->save($imageUrl);
+
+               $video->cover_image =  'public/uploads/'.$imageName;
+
+          }
+
+
         if($video->save()){
 
         return redirect()->route('admin.video')->with('success','Saved succesfully');;
@@ -85,6 +115,32 @@ class VideoController extends Controller
         $video->cover_image=$request->cover_image;
 
         $video->public_site=$request->public_site;
+        if ($request->hasfile('cover_image')) {
+
+            $productImage = $request->file('cover_image');
+              $imageName = time().$productImage->getClientOriginalName();
+              $directory = 'public/uploads/';
+              $imageUrl = $directory.$imageName;
+
+
+              $allPost=Adver::where('name','Social Banner')->latest()->value('image');
+
+              $rrt = url($allPost);
+
+               //dd($allPost);
+
+              $watermark = Image::make($rrt);
+
+
+             //Image::make($productImage)->resize(700,390)->insert($watermark, 'bottom-right', 10, 10)->save($imageUrl);
+
+              $img=Image::make($productImage)->resize(700,390);
+              $img->insert($watermark, 'bottom-right', 0);
+              $img->save($imageUrl);
+
+               $video->cover_image =  'public/uploads/'.$imageName;
+
+          }
         $video->save();
 
 

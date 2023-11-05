@@ -67,10 +67,15 @@ Create News  |{{ $ins_name }}
 
     </div>
 
+    <div class="form-group col-md-12">
+        <label for="inputEmail4">Cover Image</label>
+        <input type="file" class="form-control" name="cover_imge" placeholder="Cover Video Link">
+
+      </div>
 
     <div class="form-group col-md-12">
         <label for="inputEmail4">Cover Video</label>
-        <input type="text" class="form-control" name="cover_image" placeholder="Cover Video Link">
+        <input type="text" class="form-control" name="y_link" placeholder="Cover Video Link">
 
       </div>
     <div class="form-group col-md-12">

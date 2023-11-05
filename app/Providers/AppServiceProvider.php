@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\SystemInformation;
 use App\Models\Unit;
 use App\Models\Post;
+use App\Models\Team;
+use App\Models\Adver;
 use App\Models\Divisionnewscategory;
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        $homead=Adver::where('id',16)->value('image');
         $breakingNews = Post::latest()->limit(5)->get();
 
         $icon_name = SystemInformation::value('icon');
@@ -35,6 +39,9 @@ class AppServiceProvider extends ServiceProvider
         $system_all = SystemInformation::latest()->first();
 
         $ss_link_list = Divisionnewscategory::all();
+
+
+        $teamList = Team::all();
 
          $bb_site_logo_header = Unit::where('name','Bangla Site Header Logo')->value('img');
          $bb_site_logo_footer = Unit::where('name','Bangla Site Footer Logo')->value('img');
@@ -54,7 +61,7 @@ class AppServiceProvider extends ServiceProvider
 
           view()->share('personal_logo_name', $personal_logo_name);
 
-
+          view()->share('homead', $homead);
 
           view()->share('ss_link_list', $ss_link_list);
 
@@ -73,6 +80,8 @@ class AppServiceProvider extends ServiceProvider
         view()->share('icon', $icon_name);
 
         view()->share('breakingNews', $breakingNews);
+
+        view()->share('teamList', $teamList);
 
 
     }
